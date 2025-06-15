@@ -1,0 +1,250 @@
+openapi: 3.0.3
+info:
+  title: Analytics Service API
+  version: "1.0.0"
+  description: API สำหรับจัดการฟีเจอร์และผลลัพธ์โมเดล AI ในระบบ Smart Farming
+
+servers:
+  - url: https://api.yourdomain.com/analytics
+    description: Production server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /features:
+    get:
+      summary: ดึงฟีเจอร์ AI
+      description: ดึงรายการฟีเจอร์ AI ที่จัดเก็บไว้
+      parameters:
+        - name: animal_id
+          in: query
+          schema:
+            type: integer
+          description: กรองตามรหัสสัตว์
+        - name: feature_name
+          in: query
+          schema:
+            type: string
+          description: กรองตามชื่อฟีเจอร์
+        - name: start_date
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: วันที่เริ่มต้นสำหรับช่วงเวลา
+        - name: end_date
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: วันที่สิ้นสุดสำหรับช่วงเวลา
+      responses:
+        '200':
+          description: รายการฟีเจอร์ AI
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Feature'
+        '401':
+          description: Unauthorized
+
+    post:
+      summary: เพิ่มฟีเจอร์ใหม่
+      description: เพิ่มข้อมูลฟีเจอร์ AI ใหม่สำหรับสัตว์
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureInput'
+      responses:
+        '201':
+          description: เพิ่มฟีเจอร์สำเร็จ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+        '400':
+          description: ข้อมูลไม่ถูกต้อง
+        '401':
+          description: Unauthorized
+
+  /model_results:
+    get:
+      summary: ดึงผลลัพธ์โมเดล AI
+      description: ดึงข้อมูลผลลัพธ์การทำนายหรือ anomaly score
+      parameters:
+        - name: animal_id
+          in: query
+          schema:
+            type: integer
+          description: กรองตามรหัสสัตว์
+        - name: model_name
+          in: query
+          schema:
+            type: string
+          description: กรองตามชื่อโมเดล
+        - name: start_date
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: วันที่เริ่มต้นสำหรับช่วงเวลา
+        - name: end_date
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: วันที่สิ้นสุดสำหรับช่วงเวลา
+      responses:
+        '200':
+          description: รายการผลลัพธ์โมเดล AI
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelResult'
+        '401':
+          description: Unauthorized
+
+    post:
+      summary: เพิ่มผลลัพธ์โมเดลใหม่
+      description: เพิ่มข้อมูลผลลัพธ์โมเดล AI ใหม่
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelResultInput'
+      responses:
+        '201':
+          description: เพิ่มผลลัพธ์สำเร็จ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelResult'
+        '400':
+          description: ข้อมูลไม่ถูกต้อง
+        '401':
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Feature:
+      type: object
+      properties:
+        feature_id:
+          type: integer
+          example: 1
+        animal_id:
+          type: integer
+          example: 101
+        feature_name:
+          type: string
+          example: "average_daily_weight_gain"
+        feature_value:
+          type: number
+          format: float
+          example: 0.35
+        feature_date:
+          type: string
+          format: date-time
+          example: "2025-06-13T08:30:00Z"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-06-13T09:00:00Z"
+
+    FeatureInput:
+      type: object
+      required:
+        - animal_id
+        - feature_name
+        - feature_value
+        - feature_date
+      properties:
+        animal_id:
+          type: integer
+          example: 101
+        feature_name:
+          type: string
+          example: "average_daily_weight_gain"
+        feature_value:
+          type: number
+          format: float
+          example: 0.35
+        feature_date:
+          type: string
+          format: date-time
+          example: "2025-06-13T08:30:00Z"
+
+    ModelResult:
+      type: object
+      properties:
+        result_id:
+          type: integer
+          example: 1
+        animal_id:
+          type: integer
+          example: 101
+        model_name:
+          type: string
+          example: "weight_prediction_v1"
+        prediction:
+          type: object
+          additionalProperties: true
+          example:
+            predicted_weight: 35.6
+            confidence: 0.92
+        anomaly_score:
+          type: number
+          format: float
+          example: 0.02
+        result_date:
+          type: string
+          format: date-time
+          example: "2025-06-13T08:30:00Z"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-06-13T09:00:00Z"
+
+    ModelResultInput:
+      type: object
+      required:
+        - animal_id
+        - model_name
+        - prediction
+        - anomaly_score
+        - result_date
+      properties:
+        animal_id:
+          type: integer
+          example: 101
+        model_name:
+          type: string
+          example: "weight_prediction_v1"
+        prediction:
+          type: object
+          additionalProperties: true
+          example:
+            predicted_weight: 35.6
+            confidence: 0.92
+        anomaly_score:
+          type: number
+          format: float
+          example: 0.02
+        result_date:
+          type: string
+          format: date-time
+          example: "2025-06-13T08:30:00Z"

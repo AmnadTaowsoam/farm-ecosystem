@@ -1,0 +1,289 @@
+openapi: 3.0.3
+info:
+  title: Monitoring Service API
+  version: "1.0.0"
+  description: API สำหรับจัดการการแจ้งเตือนและกฎแจ้งเตือนของระบบ Smart Farming
+
+servers:
+  - url: https://api.yourdomain.com/monitoring
+    description: Production server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /alerts:
+    get:
+      summary: ดึงรายการ alert
+      description: ดึงรายการแจ้งเตือนทั้งหมด สามารถกรองด้วย farm_id และ status
+      parameters:
+        - name: farm_id
+          in: query
+          schema:
+            type: integer
+          description: กรองตามรหัสฟาร์ม
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [active, resolved]
+          description: กรองตามสถานะ alert
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: เลขหน้าของผลลัพธ์
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+          description: จำนวนรายการต่อหน้า
+      responses:
+        '200':
+          description: รายการ alert
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Alert'
+        '401':
+          description: Unauthorized
+
+    post:
+      summary: สร้าง alert ใหม่
+      description: สร้างแจ้งเตือนใหม่ในระบบ
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertInput'
+      responses:
+        '201':
+          description: สร้าง alert สำเร็จ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alert'
+        '400':
+          description: ข้อมูลไม่ถูกต้อง
+        '401':
+          description: Unauthorized
+
+  /alerts/{alert_id}/resolve:
+    put:
+      summary: ปิด alert
+      description: เปลี่ยนสถานะ alert เป็น resolved
+      parameters:
+        - name: alert_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID ของ alert ที่จะปิด
+      responses:
+        '200':
+          description: ปิด alert สำเร็จ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alert'
+        '404':
+          description: ไม่พบ alert
+        '401':
+          description: Unauthorized
+
+  /alert_rules:
+    get:
+      summary: ดึงกฎ alert rules
+      description: ดึงรายการกฎการแจ้งเตือนทั้งหมด
+      responses:
+        '200':
+          description: รายการกฎ alert
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlertRule'
+        '401':
+          description: Unauthorized
+
+    post:
+      summary: สร้างกฎ alert ใหม่
+      description: สร้างกฎการแจ้งเตือนใหม่ในระบบ
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertRuleInput'
+      responses:
+        '201':
+          description: สร้างกฎ alert สำเร็จ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertRule'
+        '400':
+          description: ข้อมูลไม่ถูกต้อง
+        '401':
+          description: Unauthorized
+
+  /alert_rules/{rule_id}:
+    put:
+      summary: แก้ไขกฎ alert
+      description: แก้ไขข้อมูลกฎแจ้งเตือน
+      parameters:
+        - name: rule_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID ของกฎ alert ที่จะแก้ไข
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertRuleUpdate'
+      responses:
+        '200':
+          description: แก้ไขกฎ alert สำเร็จ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertRule'
+        '400':
+          description: ข้อมูลไม่ถูกต้อง
+        '404':
+          description: ไม่พบกฎ alert
+        '401':
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Alert:
+      type: object
+      properties:
+        alert_id:
+          type: integer
+          example: 1
+        farm_id:
+          type: integer
+          example: 1001
+        alert_type:
+          type: string
+          example: "Temperature Threshold Exceeded"
+        description:
+          type: string
+          example: "Temperature in house 5 exceeded 30°C"
+        severity:
+          type: string
+          example: "high"
+        status:
+          type: string
+          enum: [active, resolved]
+          example: "active"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-06-13T08:30:00Z"
+        resolved_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-06-13T10:00:00Z"
+
+    AlertInput:
+      type: object
+      required:
+        - farm_id
+        - alert_type
+        - description
+        - severity
+      properties:
+        farm_id:
+          type: integer
+          example: 1001
+        alert_type:
+          type: string
+          example: "Temperature Threshold Exceeded"
+        description:
+          type: string
+          example: "Temperature in house 5 exceeded 30°C"
+        severity:
+          type: string
+          example: "high"
+
+    AlertRule:
+      type: object
+      properties:
+        rule_id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "High Temperature Alert"
+        metric_name:
+          type: string
+          example: "temperature"
+        threshold:
+          type: number
+          format: float
+          example: 30.0
+        condition:
+          type: string
+          example: ">"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-06-01T00:00:00Z"
+
+    AlertRuleInput:
+      type: object
+      required:
+        - name
+        - metric_name
+        - threshold
+        - condition
+      properties:
+        name:
+          type: string
+          example: "High Temperature Alert"
+        metric_name:
+          type: string
+          example: "temperature"
+        threshold:
+          type: number
+          format: float
+          example: 30.0
+        condition:
+          type: string
+          example: ">"
+
+    AlertRuleUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "High Temperature Alert"
+        metric_name:
+          type: string
+          example: "temperature"
+        threshold:
+          type: number
+          format: float
+          example: 30.0
+        condition:
+          type: string
+          example: ">"
