@@ -18,19 +18,21 @@
 ```plaintext
 smart-farming-aiot/
 ├── backend/services/       # Microservices ฝั่ง server
-│   ├── auth-service/       # Authentication & Authorization
-│   ├── mqtt-client/        # MQTT Publisher บน Edge Devices
-│   ├── edge-server/        # Node-RED, API & Edge DB
-│   ├── sync-service/       # Sync ข้อมูลจาก Edge → Cloud
-│   ├── cloud-api/          # Core Business API (Smart Farming CRUD)
-│   ├── dashboard-service/  # KPI Summary & User Config
-│   ├── data-service/       # Data Aggregation & Read APIs
-│   ├── monitoring-service/ # Alert Management
-│   ├── analytics-service/  # Feature Store & Model Results
+│   ├── auth-service/       # 4100-Authentication & Authorization
+│   ├── sensor-service      # 4101-MQTT Broker to time-series database
+│   ├── mqtt-client/        # 4102-MQTT Publisher บน Edge Devices
+│   ├── edge-server/        # 4103-Node-RED, API & Edge DB
+│   ├── sync-service/       # 4104-Sync ข้อมูลจาก Edge → Cloud
+│   ├── cloud-api/          # 4105-Core Business API (Smart Farming CRUD)
+│   ├── dashboard-service/  # 4105-KPI Summary & User Config
+│   ├── data-service/       # 4107-Data Aggregation & Read APIs
+│   ├── monitoring-service/ # 4108-Alert Management
+│   ├── analytics-service/  # 4109-Feature Store & Model Results
 │   └── shared/             # Libraries & Utilities
 ├── frontend/               # Frontend Client
 │   ├── dashboard/          # React Web Dashboard
 │   ├── mobile-app/         # React Native Mobile App (optional)
+│   ├── device-mang-app/    # 4110 React Native Web Application
 │   └── README.md           # Frontend Setup & Usage
 ├── infra/                  # Infrastructure as Code & Deployment
 │   ├── docker/             # Dockerfiles & docker-compose

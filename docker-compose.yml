@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: timescaledb
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - timescale-data:/var/lib/postgresql/data
+    networks:
+      - farm_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  sensor-service:
+    build:
+      context: ./services/sensor-service/
+      dockerfile: Dockerfile
+    container_name: sensor_service
+    image: sensor_service:latest
+    env_file:
+      - ./.env
+    # ถ้าไม่ต้อง expose ให้ภายนอก ใช้ expose แทน
+    # expose:
+    #   - "4101"
+    ports:
+      - "${SENSOR_SERVICE_PORT}:4101"
+    depends_on:
+      - timescaledb
+    networks:
+      - farm_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:4101/sensor/latest || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: always
+
+networks:
+  farm_network:
+    driver: bridge
+
+volumes:
+  timescale-data:
