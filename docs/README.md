@@ -17,44 +17,49 @@
 
 ```plaintext
 smart-farming-aiot/
-├── backend/services/       # Microservices ฝั่ง server
-│   ├── auth-service/       # 4100-Authentication & Authorization
-│   ├── sensor-service      # 4101-MQTT Broker to time-series database
-│   ├── mqtt-client/        # 4102-MQTT Publisher บน Edge Devices
-│   ├── edge-server/        # 4103-Node-RED, API & Edge DB
-│   ├── sync-service/       # 4104-Sync ข้อมูลจาก Edge → Cloud
-│   ├── cloud-api/          # 4105-Core Business API (Smart Farming CRUD)
-│   ├── dashboard-service/  # 4105-KPI Summary & User Config
-│   ├── data-service/       # 4107-Data Aggregation & Read APIs
-│   ├── monitoring-service/ # 4108-Alert Management
-│   ├── analytics-service/  # 4109-Feature Store & Model Results
-│   └── shared/             # Libraries & Utilities
-├── frontend/               # Frontend Client
-│   ├── dashboard/          # React Web Dashboard
-│   ├── mobile-app/         # React Native Mobile App (optional)
-│   ├── device-mang-app/    # 4110 React Native Web Application
-│   └── README.md           # Frontend Setup & Usage
-├── infra/                  # Infrastructure as Code & Deployment
-│   ├── docker/             # Dockerfiles & docker-compose
-│   ├── k8s/                # Kubernetes Manifests
-│   └── terraform/          # Terraform Scripts
-├── docs/                   # Documentation
-│   ├── architecture.md     # System Architecture
-│   ├── api-spec.md         # API Specification
-│   ├── user-manual.md      # User Manual
-│   ├── setup-guide.md      # Setup & Deployment Guide
-│   └── README.md           # Docs Overview
-├── tests/                  # Automated Tests
-│   ├── backend/            # Unit & Integration Tests
-│   ├── frontend/           # Frontend Tests
-│   └── e2e/                # End-to-End Tests
-├── db/                     # Database Schema
-│   └── database.sql        # Initial Schema & Migrations
+├── backend/services/                   # Microservices ฝั่ง server
+│   ├── auth-service/                   # (100%)4100-Authentication & Authorization
+│   ├── sensor-service                  # (100%)4101-รับข้อมูลจาก MQTT Broker, เขียนลง time-series database
+│   ├── mqtt-client/                    # 4102-MQTT Publisher บน Edge Devices
+│   ├── edge-server/                    # 4103-Node-RED flow, API และฐานข้อมูลฝั่ง Edge
+│   ├── sync-service/                   # 4104-ซิงค์ข้อมูลจาก Edge ไป Cloud
+│   ├── dashboard-service/              # 4105-KPI summary, user dashboard configuration
+│   ├── devices-service/                # (100%)4106-จัดการข้อมูลอุปกรณ์, device groups, device types, logs
+│   ├── customer-service/               # 4107-ข้อมูลลูกค้า และ subscription
+│   ├── farm-service/                   # 4108-ข้อมูลฟาร์ม, เล้า, สัตว์, feed intake, feed programs
+│   ├── feed-service/                   # 4109-ข้อมูล feed_batches, feed quality, pellet mill, mixing, grinding
+│   ├── formula-service/                # 4110-ข้อมูลสูตรอาหาร (formula, composition, nutrition, energy, etc.)
+│   ├── economic-service/               # 4111-ข้อมูลทางเศรษฐกิจ (costs, pricing, labor ฯลฯ)
+│   ├── external-factor-service/        # 4112-ข้อมูลภายนอก เช่น สภาพอากาศ, disease alert, market price
+│   ├── monitoring-service/             # 4113-ระบบแจ้งเตือน, alert management
+│   ├── analytics-service/              # 4114-Feature store, ผลลัพธ์โมเดล AI, การวิเคราะห์ข้อมูล
+│   └── shared/                         # Libraries & Utilities
+├── frontend/                           # Frontend Client
+│   ├── dashboard/                      # React Web Dashboard
+│   ├── mobile-app/                     # React Native Mobile App (optional)
+│   ├── device-mang-app/                # (100%)4300 React Native Web Application
+│   └── README.md                       # Frontend Setup & Usage
+├── infra/                              # Infrastructure as Code & Deployment
+│   ├── docker/                         # Dockerfiles & docker-compose
+│   ├── k8s/                            # Kubernetes Manifests
+│   └── terraform/                      # Terraform Scripts
+├── docs/                               # Documentation
+│   ├── architecture.md                 # System Architecture
+│   ├── api-spec.md                     # API Specification
+│   ├── user-manual.md                  # User Manual
+│   ├── setup-guide.md                  # Setup & Deployment Guide
+│   └── README.md                       # Docs Overview
+├── tests/                              # Automated Tests
+│   ├── backend/                        # Unit & Integration Tests
+│   ├── frontend/                       # Frontend Tests
+│   └── e2e/                            # End-to-End Tests
+├── db/                                 # Database Schema
+│   └── database.sql                    # Initial Schema & Migrations
 ├── .gitignore
-├── README.md               # This File
-├── package.json            # Monorepo Dependencies (if Node.js)
+├── README.md                           # This File
+├── package.json                        # Monorepo Dependencies (if Node.js)
 ├── yarn.lock / package-lock.json
-└── LICENSE                 # License (e.g., MIT, Apache 2.0)
+└── LICENSE                             # License (e.g., MIT, Apache 2.0)
 ```
 
 ---

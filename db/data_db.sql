@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS smart_farming.houses (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-------------------------- Device management ----------------------------------------------------
+------------------------- Start Device management ----------------------------------------------------
 
 -- 2.50) ตารางกลุ่มอุปกรณ์
 CREATE TABLE IF NOT EXISTS smart_farming.device_groups (
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS smart_farming.device_status_history (
 CREATE INDEX IF NOT EXISTS idx_device_status_history_device_id
   ON smart_farming.device_status_history(device_id);
 
----------------------------------------------------------------------------------
+------------------------- End Device management ----------------------------------------------------
 
 -- 2.6 สัตว์ (animals)
 CREATE TABLE IF NOT EXISTS smart_farming.animals (
@@ -165,42 +165,86 @@ CREATE TABLE IF NOT EXISTS smart_farming.genetic_factors (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 2.8 Feed Batches (Time-Series + Quality/Process)
-CREATE TABLE IF NOT EXISTS smart_farming.feed_batches (
+----------------------------------Start Feed Module --------------------------------------------------------------
+-- ตารางหลักสูตรอาหาร
+CREATE TABLE IF NOT EXISTS smart_farming.formula (
+  formula_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ตารางสูตรส่วนประกอบ composition
+CREATE TABLE IF NOT EXISTS smart_farming.formula_composition (
+  id SERIAL PRIMARY KEY,
+  formula_id INTEGER NOT NULL REFERENCES smart_farming.formula(formula_id) ON DELETE CASCADE,
+  ingredient VARCHAR(255) NOT NULL,
+  percentage NUMERIC NOT NULL
+);
+
+-- ตารางสูตรข้อมูลพลังงาน
+CREATE TABLE IF NOT EXISTS smart_farming.formula_energy (
+  id SERIAL PRIMARY KEY,
+  formula_id INTEGER NOT NULL REFERENCES smart_farming.formula(formula_id) ON DELETE CASCADE,
+  energy_type VARCHAR(100),
+  value NUMERIC
+);
+
+-- ตารางสูตรข้อมูลโภชนาการ
+CREATE TABLE IF NOT EXISTS smart_farming.formula_nutrition (
+  id SERIAL PRIMARY KEY,
+  formula_id INTEGER NOT NULL REFERENCES smart_farming.formula(formula_id) ON DELETE CASCADE,
+  nutrient VARCHAR(100),
+  amount NUMERIC
+);
+
+-- ตารางสูตรข้อมูลเพิ่มเติม (วิตามิน, แร่ธาตุ ฯลฯ)
+CREATE TABLE IF NOT EXISTS smart_farming.formula_additional (
+  id SERIAL PRIMARY KEY,
+  formula_id INTEGER NOT NULL REFERENCES smart_farming.formula(formula_id) ON DELETE CASCADE,
+  item VARCHAR(100),
+  details TEXT
+);
+
+-- ตาราง feed_batches แบ่ง partition ตาม production_date ทุก 6 เดือน
+CREATE TABLE smart_farming.feed_batches (
     feed_batch_id       SERIAL PRIMARY KEY,
     farm_id             INTEGER REFERENCES smart_farming.farms(farm_id),
-    formula_id          INTEGER,
+    formula_id          INTEGER REFERENCES smart_farming.formula(formula_id),
     batch_no            VARCHAR(50),
-    production_date     TIMESTAMPTZ,
+    production_date     TIMESTAMPTZ NOT NULL,
     feed_type           VARCHAR(50),
     physical_quality    JSONB,
     chemical_quality    JSONB,
     pellet_mill_condition JSONB,
     mixing_condition    JSONB,
     grinding_condition  JSONB,
-    formula_info        JSONB,
     created_at          TIMESTAMPTZ DEFAULT NOW()
-);
-CREATE INDEX IF NOT EXISTS idx_feed_batches_farm_id  ON smart_farming.feed_batches(farm_id);
-CREATE INDEX IF NOT EXISTS idx_feed_batches_batch_no ON smart_farming.feed_batches(batch_no);
+) PARTITION BY RANGE (production_date);
 
--- 2.9 Feed Batch Assignments
-CREATE TABLE IF NOT EXISTS smart_farming.feed_batch_assignments (
-    assignment_id   SERIAL PRIMARY KEY,
-    feed_batch_id   INTEGER REFERENCES smart_farming.feed_batches(feed_batch_id) ON DELETE CASCADE,
-    farm_id         INTEGER REFERENCES smart_farming.farms(farm_id),
-    house_id        INTEGER REFERENCES smart_farming.houses(house_id),
-    animal_id       INTEGER REFERENCES smart_farming.animals(animal_id),
-    assigned_start  TIMESTAMPTZ NOT NULL,
-    assigned_end    TIMESTAMPTZ,
-    feed_quantity   NUMERIC,
-    note            TEXT,
-    created_at      TIMESTAMPTZ DEFAULT NOW()
-);
-CREATE INDEX IF NOT EXISTS idx_feed_batch_assignments_feed_batch_id ON smart_farming.feed_batch_assignments(feed_batch_id);
-CREATE INDEX IF NOT EXISTS idx_feed_batch_assignments_farm_id       ON smart_farming.feed_batch_assignments(farm_id);
-CREATE INDEX IF NOT EXISTS idx_feed_batch_assignments_house_id      ON smart_farming.feed_batch_assignments(house_id);
-CREATE INDEX IF NOT EXISTS idx_feed_batch_assignments_animal_id     ON smart_farming.feed_batch_assignments(animal_id);
+-- สร้าง partition ตัวอย่างปี 2025
+CREATE TABLE smart_farming.feed_batches_2025_h1 PARTITION OF smart_farming.feed_batches 
+FOR VALUES FROM ('2025-01-01') TO ('2025-07-01');
+CREATE TABLE smart_farming.feed_batches_2025_h2 PARTITION OF smart_farming.feed_batches 
+FOR VALUES FROM ('2025-07-01') TO ('2026-01-01');
+CREATE TABLE smart_farming.feed_batches_2026_h1 PARTITION OF smart_farming.feed_batches 
+FOR VALUES FROM ('2026-01-01') TO ('2026-07-01');
+CREATE TABLE smart_farming.feed_batches_2026_h2 PARTITION OF smart_farming.feed_batches 
+FOR VALUES FROM ('2026-07-01') TO ('2026-12-31');
+CREATE TABLE smart_farming.feed_batches_2027_h1 PARTITION OF smart_farming.feed_batches 
+FOR VALUES FROM ('2027-01-01') TO ('2027-07-01');
+CREATE TABLE smart_farming.feed_batches_2027_h2 PARTITION OF smart_farming.feed_batches 
+FOR VALUES FROM ('2027-07-01') TO ('2027-12-31');
+
+-- สร้าง index บน partition
+CREATE INDEX idx_feed_batches_2025_h1_farm_id ON smart_farming.feed_batches_2025_h1(farm_id);
+CREATE INDEX idx_feed_batches_2025_h2_farm_id ON smart_farming.feed_batches_2025_h2(farm_id);
+CREATE INDEX idx_feed_batches_2026_h1_farm_id ON smart_farming.feed_batches_2026_h1(farm_id);
+CREATE INDEX idx_feed_batches_2026_h2_farm_id ON smart_farming.feed_batches_2026_h2(farm_id);
+CREATE INDEX idx_feed_batches_2027_h1_farm_id ON smart_farming.feed_batches_2027_h1(farm_id);
+CREATE INDEX idx_feed_batches_2027_h2_farm_id ON smart_farming.feed_batches_2027_h2(farm_id);
+
+----------------------------------End Feed Module --------------------------------------------------------------
 
 -- 2.10 Feeding Programs
 CREATE TABLE IF NOT EXISTS smart_farming.feed_programs (
@@ -223,17 +267,6 @@ CREATE TABLE IF NOT EXISTS smart_farming.feed_intake (
     created_at     TIMESTAMPTZ DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS idx_feed_intake_feed_batch_id ON smart_farming.feed_intake(feed_batch_id);
-
--- 2.12 Feed Composition
-CREATE TABLE IF NOT EXISTS smart_farming.feed_composition (
-    id               SERIAL PRIMARY KEY,
-    farm_id          INTEGER NOT NULL REFERENCES smart_farming.farms(farm_id) ON DELETE CASCADE,
-    feed_no          VARCHAR(13),
-    feed_composition VARCHAR(100),
-    effective_start  TIMESTAMPTZ NOT NULL,
-    effective_end    TIMESTAMPTZ,
-    created_at       TIMESTAMPTZ DEFAULT NOW()
-);
 
 -- 2.13 Environmental Factors
 CREATE TABLE IF NOT EXISTS smart_farming.environmental_factors (
