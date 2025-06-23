@@ -1,0 +1,35 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+// src/routes/index.ts
+const express_1 = require("express");
+const farms_route_1 = __importDefault(require("./farms.route"));
+const houses_route_1 = __importDefault(require("./houses.route"));
+const animal_route_1 = __importDefault(require("./animal.route"));
+const geneticFactor_route_1 = __importDefault(require("./geneticFactor.route"));
+const feedProgram_route_1 = __importDefault(require("./feedProgram.route"));
+const feedIntake_route_1 = __importDefault(require("./feedIntake.route"));
+const envFactor_route_1 = __importDefault(require("./envFactor.route"));
+const housingCondition_route_1 = __importDefault(require("./housingCondition.route"));
+const waterQuality_route_1 = __importDefault(require("./waterQuality.route"));
+const healthRecord_route_1 = __importDefault(require("./healthRecord.route"));
+const welfareIndicator_route_1 = __importDefault(require("./welfareIndicator.route"));
+const performanceMetric_route_1 = __importDefault(require("./performanceMetric.route"));
+const operationRecord_route_1 = __importDefault(require("./operationRecord.route"));
+const router = (0, express_1.Router)();
+router.use('/farms', farms_route_1.default);
+router.use('/houses', houses_route_1.default);
+router.use('/animals', animal_route_1.default);
+router.use('/genetic-factors', geneticFactor_route_1.default);
+router.use('/feed-programs', feedProgram_route_1.default);
+router.use('/feed-intake', feedIntake_route_1.default);
+router.use('/environmental-factors', envFactor_route_1.default);
+router.use('/housing-conditions', housingCondition_route_1.default);
+router.use('/water-quality', waterQuality_route_1.default);
+router.use('/health-records', healthRecord_route_1.default);
+router.use('/welfare-indicators', welfareIndicator_route_1.default);
+router.use('/performance-metrics', performanceMetric_route_1.default);
+router.use('/operation-records', operationRecord_route_1.default);
+exports.default = router;

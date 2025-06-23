@@ -1,0 +1,103 @@
+Project : FarmIQ™
+
+Sub-project 1 ## MVP 0: Core Data Ingestion
+
+**ช่วงเวลา:** 2025-08-01 → 2025-09-18
+**Summary task:** เตรียมระบบเก็บข้อมูลเบื้องต้น
+
+| Type      | Subject                                                         | Start      | End        |
+| --------- | --------------------------------------------------------------- | ---------- | ---------- |
+| Task      | ทำ procurement ฮาร์ดแวร์: Weight Scale / Depth Camera / Sensors | 2025-08-01 | 2025-08-10 |
+| Task      | Setup Edge device (Jetson Nano / Raspberry Pi)                  | 2025-08-11 | 2025-08-15 |
+| Task      | ติดตั้ง & Calibrate เซ็นเซอร์ (Temp, Humidity)                  | 2025-08-16 | 2025-08-25 |
+| Task      | พัฒนา Data pipeline (MQTT → InfluxDB/Cloud)                     | 2025-08-26 | 2025-09-05 |
+| Task      | Integration & QA ทดสอบ Data ingestion                           | 2025-09-06 | 2025-09-13 |
+| Milestone | ✅ เสร็จ MVP0: Core Data Ingestion                               |            | 2025-09-18 |
+
+---
+
+Sub-project 2 ## MVP 1: Dashboard & Monitoring
+
+**ช่วงเวลา:** 2025-09-19 → 2025-10-16
+**Summary task:** พัฒนาหน้า Dashboard และระบบแจ้งเตือนเบื้องต้น
+
+| Type      | Subject                                       | Start      | End        |
+| --------- | --------------------------------------------- | ---------- | ---------- |
+| Task      | ออกแบบ UI/UX wireframe Dashboard              | 2025-09-19 | 2025-09-23 |
+| Task      | สร้างโครงหน้า React + MUI                     | 2025-09-24 | 2025-09-26 |
+| Task      | พัฒนากราฟ Weight, Temp, Humidity (Recharts)   | 2025-09-27 | 2025-10-03 |
+| Task      | แสดงสถานะเซ็นเซอร์ Online/Offline & Indicator | 2025-10-04 | 2025-10-07 |
+| Task      | พัฒนาระบบ Alert เบื้องต้น (Threshold-based)   | 2025-10-08 | 2025-10-12 |
+| Task      | Integration test & Bug fixing                 | 2025-10-13 | 2025-10-16 |
+| Milestone | ✅ เสร็จ MVP1: Dashboard & Monitoring          |            | 2025-10-16 |
+
+---
+
+Sub-project 3 ## MVP 2: Initial AI Analytics
+
+**ช่วงเวลา:** 2025-10-17 → 2025-12-11
+**Summary task:** พัฒนาโมเดล AI เบื้องต้นบน Edge
+
+| Type      | Subject                                         | Start      | End        |
+| --------- | ----------------------------------------------- | ---------- | ---------- |
+| Task      | Research & เลือก Weight Prediction model (ONNX) | 2025-10-17 | 2025-10-23 |
+| Task      | Develop & Convert model เป็น ONNX/TensorRT      | 2025-10-24 | 2025-11-06 |
+| Task      | พัฒนา Anomaly Detection (Weight & Env)          | 2025-11-07 | 2025-11-20 |
+| Task      | Integrate inference pipeline บน Edge            | 2025-11-21 | 2025-11-30 |
+| Task      | Prototype Forecast (Feed Efficiency: FCR/ADG)   | 2025-12-01 | 2025-12-05 |
+| Task      | Test performance & optimize inference (<200 ms) | 2025-12-06 | 2025-12-09 |
+| Task      | Documentation & deploy โมเดลบน Edge             | 2025-12-10 | 2025-12-11 |
+| Milestone | ✅ เสร็จ MVP2: Initial AI Analytics              |            | 2025-12-11 |
+
+---
+
+Sub-project 4 ## MVP 3: Basic Automation
+
+**ช่วงเวลา:** 2025-12-12 → 2026-01-08
+**Summary task:** ติดตั้งและเชื่อมต่ออุปกรณ์สั่งงานอัตโนมัติ
+
+| Type      | Subject                                                | Start      | End        |
+| --------- | ------------------------------------------------------ | ---------- | ---------- |
+| Task      | Procurement Actuators (Relay, Feeders, Smart Light/AC) | 2025-12-12 | 2025-12-16 |
+| Task      | ติดตั้งไดรเวอร์ควบคุมบน Edge Device                    | 2025-12-17 | 2025-12-21 |
+| Task      | พัฒนา Control logic & Set-point interface              | 2025-12-22 | 2026-01-02 |
+| Task      | เชื่อม Control logic เข้ากับ AI outputs                | 2026-01-03 | 2026-01-06 |
+| Task      | End-to-end testing & Safety checks                     | 2026-01-07 | 2026-01-08 |
+| Milestone | ✅ เสร็จ MVP3: Basic Automation                         |            | 2026-01-08 |
+
+---
+
+Sub-project 5 ## MVP 4: ML Ops & Retraining
+
+**ช่วงเวลา:** 2026-01-09 → 2026-03-06
+**Summary task:** สร้างระบบ Retraining & Monitoring
+
+| Type      | Subject                                            | Start      | End        |
+| --------- | -------------------------------------------------- | ---------- | ---------- |
+| Task      | ออกแบบสถาปัตยกรรม ML Ops (Kubeflow, MLflow)        | 2026-01-09 | 2026-01-15 |
+| Task      | Implement Kubeflow pipeline for Retraining         | 2026-01-16 | 2026-02-04 |
+| Task      | Integrate MLflow สำหรับ Versioning โมเดล           | 2026-02-05 | 2026-02-12 |
+| Task      | Setup Monitoring (Prometheus + Grafana dashboards) | 2026-02-13 | 2026-02-20 |
+| Task      | Testing workflow Retraining & Monitoring           | 2026-02-21 | 2026-03-06 |
+| Milestone | ✅ เสร็จ MVP4: ML Ops & Retraining                  |            | 2026-03-06 |
+
+---
+
+Sub-project 6 ## MVP 5: Feedback & Scale-Out
+
+**ช่วงเวลา:** 2026-03-07 → 2026-06-12
+**Summary task:** เก็บ Feedback ปรับปรุง และขยายโมดูลเสริม
+
+| Type      | Subject                                             | Start      | End        |
+| --------- | --------------------------------------------------- | ---------- | ---------- |
+| Task      | วางแผน & เตรียม Workshop/Survey เก็บ Feedback       | 2026-03-07 | 2026-03-13 |
+| Task      | จัด Workshop / เก็บ Survey                          | 2026-03-14 | 2026-03-27 |
+| Task      | วิเคราะห์ Feedback & จัดลำดับความสำคัญฟีเจอร์       | 2026-03-28 | 2026-04-03 |
+| Task      | ปรับปรุง UX/UI ตาม Feedback                         | 2026-04-04 | 2026-04-17 |
+| Task      | พัฒนา Nutrition & Feed Intake Module                | 2026-04-18 | 2026-05-01 |
+| Task      | พัฒนา Health Management & Welfare Indicators Module | 2026-05-02 | 2026-05-15 |
+| Task      | พัฒนา Economic & Market Data Integration            | 2026-05-16 | 2026-05-29 |
+| Task      | Final review & wrap-up                              | 2026-05-30 | 2026-06-12 |
+| Milestone | ✅ เสร็จ MVP5: Feedback & Scale-Out                  |            | 2026-06-12 |
+
+

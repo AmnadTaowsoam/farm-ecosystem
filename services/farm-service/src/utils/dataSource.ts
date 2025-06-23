@@ -4,11 +4,19 @@ import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
 import { join } from 'path';
 import {
-  DeviceGroup,
-  DeviceType,
-  Device,
-  DeviceLog,
-  DeviceStatusHistory
+  Farm,
+  House,
+  Animal,
+  GeneticFactor,
+  FeedProgram,
+  FeedIntake,
+  EnvironmentalFactor,
+  HousingCondition,
+  WaterQuality,
+  HealthRecord,
+  WelfareIndicator,
+  PerformanceMetric,
+  OperationRecord
 } from '../models';
 
 // 1) โหลด .env จาก root ของโปรเจกต์
@@ -21,13 +29,21 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  schema:   'devices',
+  schema:   'farms',
   entities: [
-    DeviceGroup,
-    DeviceType,
-    Device,
-    DeviceLog,
-    DeviceStatusHistory
+    Farm,
+    House,
+    Animal,
+    GeneticFactor,
+    FeedProgram,
+    FeedIntake,
+    EnvironmentalFactor,
+    HousingCondition,
+    WaterQuality,
+    HealthRecord,
+    WelfareIndicator,
+    PerformanceMetric,
+    OperationRecord
   ],
   synchronize: false, // true only during development
   logging:     false
