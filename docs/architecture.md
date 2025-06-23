@@ -1,105 +1,123 @@
-# System Architecture: Smart Farming AIoT
+นี่คือเวอร์ชันที่ปรับให้กระชับขึ้น อ่านง่ายขึ้น และสอดคล้องกับส่วนอื่นของเอกสาร:
 
-**This document outlines the end-to-end architecture and data flow of the Smart Farming AIoT platform, from sensor edge to cloud microservices.**
+````markdown
+# System Architecture: FarmIQ
+
+**End-to-end architecture and data flow of the FarmIQ AIoT platform, from sensor edge to cloud microservices.**
 
 ---
 
 ## 1. Overview
 
-The Smart Farming AIoT system consists of three main layers:
+FarmIQ แบ่งเป็น 3 ชั้นหลัก:
 
-1. **Edge Layer**
+1. **Edge Devices**  
+   - **Sensors & Actuators**: วัดอุณหภูมิ, ความชื้น, CO₂, NH₃, แสง ฯลฯ  
+   - **Camera & Scales**: เก็บภาพ, น้ำหนักสัตว์  
+   - **เชื่อมต่อ**: ส่งข้อมูลผ่าน MQTT ไปยัง Edge Broker  
 
-   * **IoT Devices**: Sensors (temperature, humidity, CO₂, NH₃, light), cameras, scales measure farm data.
-   * **Connectivity**: Devices publish via **MQTT** to local broker.
+2. **Edge Server**  
+   - **MQTT Broker**: รับข้อความจากอุปกรณ์  
+   - **Node-RED**: ประมวลผล แปลงรูปแบบ และส่งต่อ  
+   - **Local DB**: SQLite หรือ TimescaleDB (Buffer)  
+   - **Sync-Service**: รวบรวมข้อมูลเป็นชุด (batch) แล้วส่งขึ้น Cloud ทุก 1–5 นาที  
 
-2. **Edge Server**
-
-   * **MQTT Broker**: Receives all device messages.
-   * **Node-RED**: Subscribes, transforms, and routes messages.
-   * **Local DB**: Temporary buffer (SQLite or TimescaleDB) for time-series data.
-   * **Sync-Service**: Batches buffered data and securely sends to cloud API.
-
-3. **Cloud Layer**
-   A microservices architecture deployed on Kubernetes (or Docker Compose):
-
-   | Service                | Responsibility                                            | Database Schema     |
-   | ---------------------- | --------------------------------------------------------- | ------------------- |
-   | **Auth-Service**       | User registration, login, JWT issuance, token revocation  | `auth`              |
-   | **Cloud-API**          | Core CRUD for customers, farms, houses, animals, devices  | `smart_farming`     |
-   | **Dashboard-Service**  | KPI aggregation, widget configuration                     | `dashboard`         |
-   | **Monitoring-Service** | Alert evaluation, rules engine, notifications             | `monitoring`        |
-   | **Analytics-Service**  | Feature store, AI model training & inference              | `analytics`         |
-   | **Sync-Service**       | Data ingestion endpoint for edge-to-cloud synchronization | (uses cloud-api DB) |
-
-   All services expose REST (and optional WebSocket) APIs behind an **API Gateway** for routing, authentication, and rate limiting.
-
-The **Cloud DB** is a PostgreSQL cluster with logical separation per schema.
+3. **Cloud Layer**  
+   - **API Gateway**: รวม Authentication, Rate-limit, Routing  
+   - **Microservices** (บน Kubernetes/EKS/GKE หรือ Docker Compose):
+     | Service                | หน้าที่หลัก                                           | Schema            |
+     | ---------------------- | ----------------------------------------------------- | ----------------- |
+     | Auth-Service           | ลงทะเบียน, เข้าสู่ระบบ, ออกโทเค็น, JWT validation   | `auth`            |
+     | Cloud-API              | CRUD: customers, farms, houses, animals, devices      | `smart_farming`   |
+     | Dashboard-Service      | สรุป KPI, บริหาร widget configuration                 | `dashboard`       |
+     | Monitoring-Service     | ประเมิน Alert Rules, ส่งแจ้งเตือน                    | `monitoring`      |
+     | Analytics-Service      | จัดเก็บ features, Model training & inference          | `analytics`       |
+     | Sync-Service (Cloud)   | รับข้อมูลจาก Edge, เรียก Cloud-API เพื่อบันทึกข้อมูล | (ใช้ Cloud-API DB)|
+   - **Cloud DB**: PostgreSQL cluster แยก schema ตามหน้าที่  
 
 ---
 
 ## 2. Component Diagram
 
 ```plaintext
-[Sensor/Actuator] -(MQTT)-> [Jetson/RPi] -(Wi-Fi/Ethernet)-> [Edge Server]
-      Edge Server: { MQTT Broker | Node-RED | Local DB | Sync-Service }
-                         |
-                         | (HTTPS)
-                         v
-                  [API Gateway]
-                         |
-       +-----------------+-----------------
-       |                 |                 |
- [Auth] / [Cloud-API] [Dashboard] [Monitoring] [Analytics]
-       
-          \              |                /
-           \             |               /
-            \            |              /
-             +------[Postgres Cluster]------+
-```
+[Sensors/Scales] 
+     └─ MQTT → [Jetson/RPi: Edge Server]
+          ├─ MQTT Broker
+          ├─ Node-RED
+          ├─ Local Timeseries DB
+          └─ Sync-Service ── HTTPS ──┐
+                                    ▼
+                              [API Gateway]
+                                    │
+        ┌───────────────┬───────────┼───────────────┐
+        │               │           │               │
+   [Auth]        [Cloud-API] [Dashboard] [Monitoring] [Analytics]
+                                       └───┬───┘
+                                           ▼
+                                 [PostgreSQL Cluster]
+````
 
 ---
 
-## 3. Data Flow
+## 3. Data Flow Sequence
 
-1. **Sensor → Edge Broker**: Sensor data published to local MQTT topics.
-2. **Edge Processing**: Node-RED flows subscribe, filter noisy readings, add metadata.
-3. **Edge Buffer**: Pre-processed messages inserted into local timeseries DB.
-4. **Edge → Cloud Sync**: Sync-Service polls buffer (e.g., every 1–5 min), calls `POST /sync/edge-to-cloud`.
-5. **Cloud Persistence**: Cloud-API validates and writes data into production tables (partitioned by date).
-6. **Real-Time Analytics**: Monitoring-Service triggers alerts; Analytics-Service computes new features/predictions.
-7. **Dashboard Update**: Dashboard-Service fetches aggregated metrics and serves to frontend.
+1. **Publish**: Sensor → `mqtt://edge-broker/topic`
+2. **Transform**: Node-RED subscribes → Filter/Enrich → push to Local DB
+3. **Buffer**: ข้อมูลถูกจัดเก็บใน SQLite/TimescaleDB
+4. **Sync**: Sync-Service ดึง batch → `POST /sync/edge-to-cloud`
+5. **Persist**: Cloud-API ตรวจสอบ → เขียนลงตาราง production (Partition by date)
+6. **Process**:
 
----
-
-## 4. Microservice Interactions
-
-| From               | To                  | Endpoint                              | Protocol  |
-| ------------------ | ------------------- | ------------------------------------- | --------- |
-| Edge Sync-Service  | Cloud-API           | `POST /sync/edge-to-cloud`            | HTTPS     |
-| Frontend Dashboard | Dashboard-Service   | `GET /dashboard/{farm}/metrics`       | HTTP      |
-| Auth-Service       | All Secure Services | JWT Bearer via `Authorization` header | HTTP      |
-| Data-Service       | Cloud-API DB        | Direct DB connections                 | TCP       |
-| Monitoring-Service | Notification System | (e.g., Email/SMS/Webhook)             | HTTP/Push |
+   * Monitoring-Service: ตรวจ Alert Rules → แจ้งเตือน
+   * Analytics-Service: สร้าง features/รันโมเดล → เก็บผลลัพธ์
+7. **Serve**: Dashboard-Service ดึงค่าประมวลผล → ส่งต่อให้ Frontend
 
 ---
 
-## 5. Deployment
+## 4. Microservice Interaction
 
-* **Edge**: Run `mqtt-client` and `edge-server` in Docker on Jetson/RPi.
-* **Cloud**: Deploy all services on Kubernetes (EKS/GKE/AKS) with Helm charts or Docker Compose for smaller setups.
-* **Infrastructure as Code**: Use Terraform to provision VPC, subnets, RDS, EKS cluster, and managed MQTT broker if needed.
-
----
-
-## 6. Security Considerations
-
-* **Authentication**: JWT tokens issued by Auth-Service; services validate tokens for protected endpoints.
-* **Network Isolation**: Edge network segmented from public internet; only Edge Server communicates outbound.
-* **Encryption**: TLS for MQTT, HTTPS for API calls, and SSL for DB connections.
-* **Least Privilege**: DB users scoped per schema; services run with minimal OS privileges.
+| Caller              | Callee              | Endpoint                                   | Protocol |
+| ------------------- | ------------------- | ------------------------------------------ | -------- |
+| Edge Sync-Service   | Cloud-API           | `POST /sync/edge-to-cloud`                 | HTTPS    |
+| Web/Mobile Frontend | Dashboard-Service   | `GET /dashboard/{farm}/metrics`            | HTTP     |
+| Any Client          | Auth-Service        | `POST /auth/login` / `POST /auth/register` | HTTP     |
+| Services ↔ DB       | PostgreSQL Cluster  | Direct TCP                                 | TCP      |
+| Monitoring-Service  | Notification System | Email/SMS/Webhook                          | HTTP     |
 
 ---
 
-*Reviewed on: 2025-06-15*
+## 5. Deployment Strategy
+
+* **Edge**: รัน `mqtt-client` + `edge-server` บน Docker ใน Jetson/RPi
+* **Cloud**:
+
+  * Kubernetes + Helm charts บน EKS/GKE/AKS
+  * Docker Compose สำหรับงาน dev หรือ PoC
+* **IaC**: Terraform สร้าง VPC, Subnets, RDS, EKS Cluster, Managed MQTT Broker
+
+---
+
+## 6. Security Best Practices
+
+* **JWT Auth**: ตรวจสอบทุก API ยกเว้น `/auth/register` & `/auth/login`
+* **Network Segmentation**:
+
+  * Edge Network แยกจาก Public Internet
+  * Edge Server สื่อสารออกได้เฉพาะกับ Cloud API
+* **TLS/SSL**:
+
+  * MQTT over TLS
+  * HTTPS สำหรับ API
+  * SSL สำหรับ DB connections
+* **Least Privilege**:
+
+  * DB users แยกสิทธิ์ตาม schema
+  * Container run as non-root user
+
+---
+
+*Review Date: 2025-06-15*
 *Maintainer: Platform Architecture Team*
+
+```
+```

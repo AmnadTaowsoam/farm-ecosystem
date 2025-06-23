@@ -1,172 +1,275 @@
-# Smart Farming AIoT Project
+````markdown
+# FarmIQ
+
+FarmIQ is an intelligent farm management platform that integrates IoT, AI, and microservices to deliver real-time data collection, edge processing, and cloud analytics. It provides both web and mobile interfaces for comprehensive monitoring and control.
+
+---
+
+## Table of Contents
+1. [Overview](#overview)
+2. [Key Features](#key-features)
+3. [Architecture & Tech Stack](#architecture--tech-stack)
+4. [Project Structure](#project-structure)
+5. [Database Design](#database-design)
+6. [API Reference](#api-reference)
+7. [Authentication & Security](#authentication--security)
+8. [Development Setup](#development-setup)
+9. [Deployment](#deployment)
+10. [Testing](#testing)
+11. [Documentation](#documentation)
+12. [Contributing](#contributing)
+13. [License](#license)
+14. [Contact & Support](#contact--support)
+
+---
 
 ## Overview
 
-โปรเจกต์ **smart-farming-aiot** เป็นระบบบริหารจัดการฟาร์มอัจฉริยะ ที่ผสมผสานเทคโนโลยี **IoT**, **AI**, และ **Microservices** เพื่อ:
+FarmIQ is designed to help farmers and agribusinesses monitor and manage operations through:
 
-* เก็บข้อมูลจาก Sensor แบบเรียลไทม์
-* ประมวลผลและวิเคราะห์ข้อมูลเบื้องต้นบน Edge DevicesMESwebwebMobile
-* ซิงค์ข้อมูลขึ้น Cloud สำหรับการจัดเก็บถาวรและวิเคราะห์เชิงลึก
-* แสดงผลผ่าน Web Dashboard และ Mobile App
+- **Real-time Data Collection** from distributed sensors via MQTT.
+- **Edge & MES Processing**: preliminary aggregation, filtering, and alerts on devices like Raspberry Pi or Jetson Nano.
+- **Cloud Synchronization**: secure transfer of time-series data for long‑term storage and batch analysis.
+- **Web & Mobile Dashboards**: intuitive UI for KPIs, alerts, device management, and configuration.
 
-ด้วยสถาปัตยกรรมที่ยืดหยุ่น ขยายตัวได้ง่าย รองรับการทำงานทั้งบน Edge และ Cloud
+The system’s modular microservice architecture ensures scalability, resilience, and ease of maintenance across edge and cloud environments.
+
+---
+
+## Key Features
+
+- **Sensor Management**: automatic discovery, registration, and health checks.
+- **Time-series Data**: optimized ingestion into TSDB (TimescaleDB / InfluxDB) with partitioning and indexing.
+- **Alerts & Monitoring**: custom alert rules, notifications (email, SMS, LINE), and incident tracking.
+- **Analytics & AI**: feature store, model inference results, anomaly detection, and forecasting.
+- **Role-based Access**: multi-tenant support, subscription tiers, and granular permissions.
+- **Edge-to-Cloud Sync**: robust data synchronization with retry and conflict resolution.
+- **CI/CD & IaC**: Docker, Kubernetes, Terraform, GitHub Actions for automated builds and deployments.
+
+---
+
+## Architecture & Tech Stack
+
+- **Microservices**: Node.js & FastAPI services in Docker containers.
+- **Messaging**: MQTT for sensor-to-edge data flows.
+- **Databases**:
+  - **Time-series**: TimescaleDB / InfluxDB
+  - **Relational**: PostgreSQL (farm, metadata)
+- **AI & Analytics**: Python (scikit-learn, PyTorch), feature store.
+- **Frontend**: React (Web dashboard), React Native (mobile).
+- **Infra**: Kubernetes (EKS/GKE), Terraform, Helm, Docker Compose (dev).
+- **CI/CD**: GitHub Actions, Docker Hub, Kubernetes manifests.
 
 ---
 
 ## Project Structure
 
 ```plaintext
-smart-farming-aiot/
-├── backend/services/                   # Microservices ฝั่ง server
-│   ├── auth-service/                   # (100%)4100-Authentication & Authorization
-│   ├── sensor-service                  # (100%)4101-รับข้อมูลจาก MQTT Broker, เขียนลง time-series database
-│   ├── mqtt-client/                    # 4102-MQTT Publisher บน Edge Devices
-│   ├── edge-server/                    # 4103-Node-RED flow, API และฐานข้อมูลฝั่ง Edge
-│   ├── sync-service/                   # 4104-ซิงค์ข้อมูลจาก Edge ไป Cloud
-│   ├── dashboard-service/              # 4105-KPI summary, user dashboard configuration
-│   ├── devices-service/                # (100%)4106-จัดการข้อมูลอุปกรณ์, device groups, device types, logs
-│   ├── customer-service/               # 4107-ข้อมูลลูกค้า และ subscription
-│   ├── farm-service/                   # 4108-ข้อมูลฟาร์ม, เล้า, สัตว์, feed intake, feed programs
-│   ├── feed-service/                   # 4109-ข้อมูล feed_batches, feed quality, pellet mill, mixing, grinding
-│   ├── formula-service/                # 4110-ข้อมูลสูตรอาหาร (formula, composition, nutrition, energy, etc.)
-│   ├── economic-service/               # 4111-ข้อมูลทางเศรษฐกิจ (costs, pricing, labor ฯลฯ)
-│   ├── external-factor-service/        # 4112-ข้อมูลภายนอก เช่น สภาพอากาศ, disease alert, market price
-│   ├── monitoring-service/             # 4113-ระบบแจ้งเตือน, alert management
-│   ├── analytics-service/              # 4114-Feature store, ผลลัพธ์โมเดล AI, การวิเคราะห์ข้อมูล
-│   └── shared/                         # Libraries & Utilities
-├── frontend/                           # Frontend Client
-│   ├── dashboard/                      # React Web Dashboard
-│   ├── mobile-app/                     # React Native Mobile App (optional)
-│   ├── device-mang-app/                # (100%)4300 React Native Web Application
-│   └── README.md                       # Frontend Setup & Usage
-├── infra/                              # Infrastructure as Code & Deployment
-│   ├── docker/                         # Dockerfiles & docker-compose
-│   ├── k8s/                            # Kubernetes Manifests
-│   └── terraform/                      # Terraform Scripts
-├── docs/                               # Documentation
-│   ├── architecture.md                 # System Architecture
-│   ├── api-spec.md                     # API Specification
-│   ├── user-manual.md                  # User Manual
-│   ├── setup-guide.md                  # Setup & Deployment Guide
-│   └── README.md                       # Docs Overview
-├── tests/                              # Automated Tests
-│   ├── backend/                        # Unit & Integration Tests
-│   ├── frontend/                       # Frontend Tests
-│   └── e2e/                            # End-to-End Tests
-├── db/                                 # Database Schema
-│   └── database.sql                    # Initial Schema & Migrations
-├── .gitignore
-├── README.md                           # This File
-├── package.json                        # Monorepo Dependencies (if Node.js)
-├── yarn.lock / package-lock.json
-└── LICENSE                             # License (e.g., MIT, Apache 2.0)
-```
+FarmIQ/
+├── backend/services/                   # Microservices (Dockerized)
+│   ├── auth-service/                   # Authentication & Authorization (JWT)
+│   ├── sensor-service/                 # MQTT ingestion → TSDB
+│   ├── mqtt-client/                    # Edge MQTT publishers
+│   ├── edge-server/                    # Node-RED flows & Edge APIs
+│   ├── sync-service/                   # Edge-to-Cloud data sync
+│   ├── dashboard-service/              # KPI summaries & widgets
+│   ├── devices-service/                # Device metadata & logs
+│   ├── customer-service/               # Customer & subscription management
+│   ├── farm-service/                   # Farm, houses, animals, feed intake
+│   ├── feed-service/                   # Batches, quality, processing workflows
+│   ├── formula-service/                # Nutrition formulas & energy models
+│   ├── economic-service/               # Cost, pricing, labor analytics
+│   ├── external-factor-service/        # Weather, disease alerts, market data
+│   ├── monitoring-service/             # Alerts & alert rules engine
+│   ├── analytics-service/              # Feature store & model results
+│   └── shared/                         # Common libraries & utilities
+├── frontend/                           # Client Applications
+│   ├── dashboard/                      # React web dashboard
+│   ├── device-manage-app/              # React Native / Web for device ops
+│   └── mobile-app/                     # Optional React Native mobile UI
+├── infra/                              # Infrastructure as Code
+│   ├── docker/                         # Dockerfiles & compose (dev)
+│   ├── k8s/                            # Kubernetes manifests & Helm charts
+│   └── terraform/                      # Terraform scripts (prod)
+├── docs/                               # Documentation & Specs
+│   ├── architecture.md                 # System & network diagrams
+│   ├── api-spec.md                     # OpenAPI / Swagger definitions
+│   ├── user-manual.md                  # End‑user guide & screenshots
+│   ├── setup-guide.md                  # Installation & environment setup
+│   └── README.md                       # Docs overview
+├── db/                                 # Database schema & migrations
+│   └── migrations/                     # SQL and migration scripts
+├── tests/                              # Automated tests
+│   ├── backend/                        # Unit & integration tests
+│   ├── frontend/                       # Jest & React Testing Library
+│   └── e2e/                            # Cypress end-to-end tests
+├── .github/                            # CI/CD workflows
+├── .gitignore                          # Ignore patterns
+├── package.json / yarn.lock            # Monorepo dependencies
+├── LICENSE                             # MIT / Apache-2.0
+└── README.md                           # This file
+````
 
 ---
 
 ## Database Design
 
-ฐานข้อมูลจัดเก็บใน **PostgreSQL** แยกเป็นหลาย Schema ตามหน้าที่:
+PostgreSQL is organized into logical schemas:
 
-* `smart_farming`: ข้อมูลฟาร์ม, สัตว์, Sensor, Feed, Health, Metrics
-* `auth`: ผู้ใช้งาน, หมดอายุและรีเฟรชโทเค็น
-* `dashboard`: Cache KPI และการตั้งค่า Widget
-* `monitoring`: Alerts และ Alert Rules
-* `analytics`: Feature Store และ Model Results
+* `smart_farming`: farms, houses, animals, sensor metadata, feed, health, metrics.
+* `auth`: users, tokens, roles.
+* `dashboard`: cached KPIs and widget configs.
+* `monitoring`: alerts, alert rules.
+* `analytics`: feature store, model outputs.
 
-ตารางหลัก (customers, farms, houses, animals, devices) ออกแบบรองรับระบบ production และ time-series partitioning
+Key tables (examples):
+
+| Schema          | Table                   | Purpose                           |
+| --------------- | ----------------------- | --------------------------------- |
+| `smart_farming` | `customers`             | Tenant information                |
+| `smart_farming` | `farm`                  | Farm & location data              |
+| `smart_farming` | `device_status_history` | Time‑series device state changes  |
+| `analytics`     | `features`              | Engineered features for models    |
+| `monitoring`    | `alerts`                | Active and resolved alert records |
+
+Time-series tables are partitioned by date for performance.
 
 ---
 
-## API Design Summary
+## API Reference
 
-### 1. Auth-Service
+### Auth Service
 
-* **POST** `/auth/register`: ลงทะเบียน
-* **POST** `/auth/login`: เข้าสู่ระบบ
-* **POST** `/auth/refresh-token`: รีเฟรชโทเค็น
-* **POST** `/auth/logout`: ออกจากระบบ
+* `POST /auth/register`  - Register new user
+* `POST /auth/login`     - Obtain JWT tokens
+* `POST /auth/refresh`   - Refresh access token
+* `POST /auth/logout`    - Revoke tokens
 
-### 2. Cloud-API (Smart Farming CRUD)
+### Resource APIs (Bearer JWT)
 
-| Method | Path              | Description      |
-| ------ | ----------------- | ---------------- |
-| GET    | `/customers`      | ดึงลูกค้าทั้งหมด |
-| POST   | `/customers`      | สร้างลูกค้าใหม่  |
-| GET    | `/customers/{id}` | รายละเอียดลูกค้า |
-| PUT    | `/customers/{id}` | แก้ไขลูกค้า      |
-| DELETE | `/customers/{id}` | ลบลูกค้า         |
+| Service   | Method | Path              | Description          |
+| --------- | ------ | ----------------- | -------------------- |
+| Customers | `GET`  | `/customers`      | List all customers   |
+|           | `POST` | `/customers`      | Create new customer  |
+|           | `GET`  | `/customers/{id}` | Get customer details |
+| Farms     | `GET`  | `/farms`          | List all farms       |
+| …         | …      | …                 | …                    |
 
-(และ endpoints สำหรับ `/farms`, `/houses`, `/animals`, `/devices`)
+(Additional endpoints for `/houses`, `/animals`, `/devices`, etc.)
 
-### 3. Dashboard-Service
+### Monitoring Service
 
-* **GET** `/dashboard/{user_id}/config`
-* **POST** `/dashboard/{user_id}/config`
-* **GET** `/dashboard/{farm_id}/metrics`
+* `GET /alerts`            - Retrieve alerts
+* `POST /alerts`           - Create new alert
+* `PUT /alerts/{id}/resolve` - Resolve an alert
+* `GET /alert_rules`       - List alert rules
+* `POST /alert_rules`      - Create rule
+* `PUT /alert_rules/{id}`  - Update rule
 
-### 4. Monitoring-Service
+### Analytics Service
 
-* **GET** `/alerts`
-* **POST** `/alerts`
-* **PUT** `/alerts/{id}/resolve`
-* **GET** `/alert_rules`
-* **POST** `/alert_rules`
-* **PUT** `/alert_rules/{id}`
+* `GET /features`
+* `POST /features`
+* `GET /model_results`
+* `POST /model_results`
 
-### 5. Analytics-Service
+### Sync Service
 
-* **GET** `/features`
-* **POST** `/features`
-* **GET** `/model_results`
-* **POST** `/model_results`
-
-### 6. Sync-Service
-
-* **POST** `/sync/edge-to-cloud`
+* `POST /sync/edge-to-cloud` - Trigger data synchronization
 
 ---
 
 ## Authentication & Security
 
-* ใช้ **JWT Bearer Token** สําหรับ API ทุกรายการ (ยกเว้น register/login)
-* Header: `Authorization: Bearer <access_token>`
+* **JWT Bearer** for all protected endpoints (except `/register` and `/login`).
+* Tokens sent in `Authorization: Bearer <token>` header.
+* Role-based access control applied per service.
+* All APIs served over HTTPS in production.
 
 ---
 
-## Development & Deployment
+## Development Setup
 
-* แต่ละ microservice แพ็กด้วย **Docker**
-* พัฒนาและทดสอบด้วย **docker-compose** (dev)
-* Deploy production ด้วย **Kubernetes** หรือ **Terraform + EKS/GKE**
-* **Edge**: รัน mqtt-client และ edge-server บน Jetson/RPi พร้อม Node-RED flows
+1. **Clone the repo**:
+
+   ```bash
+   git clone https://github.com/yourorg/FarmIQ.git
+   cd FarmIQ
+   ```
+2. **Environment variables**: copy `.env.example` to each service and configure.
+3. **Start dependencies**:
+
+   ```bash
+   docker-compose -f infra/docker/docker-compose.yml up -d
+   ```
+4. **Run services**:
+
+   ```bash
+   # In each backend service folder
+   npm install && npm run dev
+
+   # Frontend
+   cd frontend/dashboard && yarn install && yarn start
+   ```
 
 ---
 
-## Documentation & Tests
+## Deployment
 
-* ดูเอกสารสมบูรณ์ในโฟลเดอร์ `/docs`
-* รัน tests:
+* **Container Registry**: push images to Docker Hub or AWS ECR.
+* **Kubernetes**: apply manifests in `infra/k8s/` or Helm charts.
+* **Terraform**: provision cloud infra under `infra/terraform/`.
+* **CI/CD**: GitHub Actions workflows build, test, and deploy on merge to `main`.
 
-  ```bash
-  # Backend
-  npm test --prefix backend/services/<service>
+---
 
-  # Frontend
-  npm test --prefix frontend/dashboard
+## Testing
 
-  # E2E
-  npm run test:e2e
-  ```
+```bash
+# Backend unit & integration
+npm test --prefix backend/services/<service>
+
+# Frontend
+npm test --prefix frontend/dashboard
+
+# End-to-end
+npm run test:e2e
+```
+
+---
+
+## Documentation
+
+All project docs live in `/docs`:
+
+* **architecture.md**: diagrams and flow descriptions.
+* **api-spec.md**: OpenAPI definitions.
+* **user-manual.md**: end‑user guides.
+* **setup-guide.md**: installation and environment.
+
+---
+
+## Contributing
+
+1. Fork repository
+2. Create feature branch (`git checkout -b feature/xyz`)
+3. Commit changes (`git commit -m "Add xyz feature"`)
+4. Push branch (`git push origin feature/xyz`)
+5. Open a Pull Request
+
+Please follow our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing Guidelines](CONTRIBUTING.md).
+
+---
+
+## License
+
+This project is licensed under the **Apache 2.0** License. See [LICENSE](LICENSE) for details.
 
 ---
 
 ## Contact & Support
 
-* ดูคู่มือผู้ใช้: `/docs/user-manual.md`
-* ดูวิธีติดตั้ง: `/docs/setup-guide.md`
-* ติดต่อทีมพัฒนาที่ `support@yourdomain.com`
+For questions or support, email **[support@farmiq.com](mailto:support@farmiq.com)** or open an issue on GitHub: [https://github.com/yourorg/FarmIQ/issues](https://github.com/yourorg/FarmIQ/issues)
 
----
-
-**Smart Farming AIoT** — ยกระดับการจัดการฟาร์มด้วย IoT และ AI
+```
+```
