@@ -75,8 +75,8 @@ FarmIQ/
 │   ├── dashboard-service/              # KPI summaries & widgets
 │   ├── devices-service/                # Device metadata & logs
 │   ├── customer-service/               # Customer & subscription management
-│   ├── farm-service/                   # Farm, houses, animals, feed intake
-│   ├── feed-service/                   # Batches, quality, processing workflows
+│   ├── farm-service/                   # (Port:4108)Farm, houses, animals, feed intake
+│   ├── feed-service/                   # (Port:4109)Batches, quality, processing workflows
 │   ├── formula-service/                # Nutrition formulas & energy models
 │   ├── economic-service/               # Cost, pricing, labor analytics
 │   ├── external-factor-service/        # Weather, disease alerts, market data
