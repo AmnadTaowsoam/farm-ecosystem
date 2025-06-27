@@ -21,13 +21,13 @@ export class FeedBatchAssignment {
   @Column({ name: 'feed_batch_id' })
   feedBatchId!: number;
 
-  @Column({ nullable: true })
+  @Column({ name: 'farm_id', nullable: true })
   farmId?: number;
 
-  @Column({ nullable: true })
+  @Column({ name: 'house_id', nullable: true })
   houseId?: number;
 
-  @Column({ nullable: true })
+  @Column({ name: 'animal_id', nullable: true })
   animalId?: number;
 
   @Column({ name: 'assigned_start', type: 'timestamptz' })
@@ -39,7 +39,7 @@ export class FeedBatchAssignment {
   @Column({ name: 'feed_quantity', type: 'numeric', nullable: true })
   feedQuantity?: number;
 
-  @Column({ nullable: true, type: 'text' })
+  @Column({ name: 'note', type: 'text', nullable: true })
   note?: string;
 
   @CreateDateColumn({ name: 'created_at' })
