@@ -67,21 +67,21 @@ The system’s modular microservice architecture ensures scalability, resilience
 ```plaintext
 FarmIQ/
 ├── backend/services/                   # Microservices (Dockerized)
-│   ├── auth-service/                   # Authentication & Authorization (JWT)
-│   ├── sensor-service/                 # MQTT ingestion → TSDB
-│   ├── mqtt-client/                    # Edge MQTT publishers
-│   ├── edge-server/                    # Node-RED flows & Edge APIs
-│   ├── sync-service/                   # Edge-to-Cloud data sync
-│   ├── dashboard-service/              # KPI summaries & widgets
-│   ├── devices-service/                # Device metadata & logs
-│   ├── customer-service/               # Customer & subscription management
+│   ├── auth-service/                   # (Port:4100)Authentication & Authorization (JWT)
+│   ├── sensor-service/                 # (Port:4101)MQTT ingestion → TSDB
+│   ├── mqtt-client/                    # (PORT:4102)Edge MQTT publishers
+│   ├── edge-server/                    # (PORT:4103)Node-RED flows & Edge APIs
+│   ├── sync-service/                   # (PORT:4104)Edge-to-Cloud data sync
+│   ├── dashboard-service/              # (PORT:4105)KPI summaries & widgets
+│   ├── devices-service/                # (Port:4106)Device metadata & logs
+│   ├── customer-service/               # (Port:4107)Customer & subscription management
 │   ├── farm-service/                   # (Port:4108)Farm, houses, animals, feed intake
 │   ├── feed-service/                   # (Port:4109)Batches, quality, processing workflows
-│   ├── formula-service/                # Nutrition formulas & energy models
-│   ├── economic-service/               # Cost, pricing, labor analytics
-│   ├── external-factor-service/        # Weather, disease alerts, market data
-│   ├── monitoring-service/             # Alerts & alert rules engine
-│   ├── analytics-service/              # Feature store & model results
+│   ├── formula-service/                # (Port:4110)Nutrition formulas & energy models
+│   ├── economic-service/               # (Port:4111)Cost, pricing, labor analytics
+│   ├── external-factor-service/        # (Port:4112)Weather, disease alerts, market data
+│   ├── monitoring-service/             # (Port:4113)Alerts & alert rules engine
+│   ├── analytics-service/              # (Port:4114)Feature store & model results
 │   └── shared/                         # Common libraries & utilities
 ├── frontend/                           # Client Applications
 │   ├── dashboard/                      # React web dashboard

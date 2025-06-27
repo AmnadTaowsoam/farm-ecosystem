@@ -3,7 +3,7 @@ CREATE SCHEMA IF NOT EXISTS farms;
 -- ตาราง farms
 CREATE TABLE farms.farms (
     farm_id SERIAL PRIMARY KEY,
-    customer_id INTEGER REFERENCES customers.customers(customer_id) ON DELETE CASCADE,
+    customer_id INTEGER,
     name VARCHAR(255) NOT NULL,
     location TEXT,
     status VARCHAR(50) DEFAULT 'active',
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS farms.feed_intake (
     animal_id      INTEGER REFERENCES farms.animals(animal_id) ON DELETE SET NULL,
     feed_quantity  NUMERIC,
     -- เปลี่ยน FK ให้ถูกต้อง ชี้ไป feeds.feed_batches แทน farms.feed_batches
-    feed_batch_id  INTEGER REFERENCES feeds.feed_batches(feed_batch_id) ON DELETE SET NULL,
+    feed_batch_id  INTEGER,
     created_at     TIMESTAMPTZ DEFAULT NOW() NOT NULL,
     updated_at     TIMESTAMPTZ DEFAULT NOW() NOT NULL
 );

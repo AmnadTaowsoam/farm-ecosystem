@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS external_factors;
 
 CREATE TABLE external_factors.external_factors (
     id SERIAL PRIMARY KEY,
-    farm_id INTEGER NOT NULL REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    farm_id INTEGER,
     weather JSONB,
     disease_alert JSONB,
     market_price JSONB,

@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS economics;
 
 CREATE TABLE economics.economic_data (
     id SERIAL PRIMARY KEY,
-    farm_id INTEGER NOT NULL REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    farm_id INTEGER,
     cost_type VARCHAR(100) NOT NULL,
     amount NUMERIC,
     animal_price NUMERIC,
