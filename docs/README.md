@@ -1,5 +1,5 @@
-````markdown
-# FarmIQ
+
+# FarmIQ™
 
 FarmIQ is an intelligent farm management platform that integrates IoT, AI, and microservices to deliver real-time data collection, edge processing, and cloud analytics. It provides both web and mobile interfaces for comprehensive monitoring and control.
 
@@ -270,6 +270,3 @@ This project is licensed under the **Apache 2.0** License. See [LICENSE](LICENSE
 ## Contact & Support
 
 For questions or support, email **[support@farmiq.com](mailto:support@farmiq.com)** or open an issue on GitHub: [https://github.com/yourorg/FarmIQ/issues](https://github.com/yourorg/FarmIQ/issues)
-
-```
-```
