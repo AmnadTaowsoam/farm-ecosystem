@@ -1,6 +1,7 @@
 // feed-service/src/utils/dataSource.ts
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import { FeedBatchAssignment } from '../models/feedBatchAssignments.model';
 import * as dotenv from 'dotenv';
 import { join } from 'path';
 import {
@@ -29,6 +30,7 @@ export const AppDataSource = new DataSource({
     PelletMillCondition,
     MixingCondition,
     GrindingCondition,
+    FeedBatchAssignment,    // ← เพิ่มตรงนี้
   ],
   synchronize: false,
   logging: false,
