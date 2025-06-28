@@ -1,4 +1,3 @@
-// src/models/device.model.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -15,23 +14,25 @@ import { DeviceStatusHistory } from './deviceStatusHistory.model';
 
 @Entity({ schema: 'devices', name: 'devices' })
 export class Device {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'device_id' })
   device_id!: number;
 
-  // เก็บเฉพาะ id เท่านั้น house อยู่ service/database อื่น ไม่ต้อง relation
-  @Column({ nullable: true })
+  /** Tenant isolation: reference to customer */
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
+  /** House belongs to another service; only keep FK */
+  @Column({ name: 'house_id', type: 'int', nullable: true })
   house_id?: number;
 
-  // ลบความสัมพันธ์ house ออก
-
-  @Column({ nullable: true })
+  @Column({ name: 'type_id', type: 'int', nullable: true })
   type_id?: number;
 
   @ManyToOne(() => DeviceType, (dt) => dt.devices, { nullable: true, onDelete: 'SET NULL' })
   @JoinColumn({ name: 'type_id' })
   type?: DeviceType;
 
-  @Column({ nullable: true })
+  @Column({ name: 'group_id', type: 'int', nullable: true })
   group_id?: number;
 
   @ManyToOne(() => DeviceGroup, (dg) => dg.devices, { nullable: true, onDelete: 'SET NULL' })
@@ -53,7 +54,7 @@ export class Device {
   @Column({ type: 'date', nullable: true })
   last_maintenance?: string;
 
-  @Column('text', { nullable: true })
+  @Column('text', { name: 'location_detail', nullable: true })
   location_detail?: string;
 
   @Column({ length: 255, nullable: true })
@@ -104,15 +105,14 @@ export class Device {
   @Column({ length: 50, default: 'active' })
   status!: string;
 
-  @CreateDateColumn({ type: 'timestamptz' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
   created_at!: Date;
 
-  @UpdateDateColumn({ type: 'timestamptz' })
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamptz' })
   updated_at!: Date;
 
   @OneToMany(() => DeviceStatusHistory, (sh) => sh.device)
   status_history?: DeviceStatusHistory[];
-
-  // ลบความสัมพันธ์ sensor_data ออก
 }
+
 

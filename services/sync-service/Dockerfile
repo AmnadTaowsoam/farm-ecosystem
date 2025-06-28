@@ -5,13 +5,13 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# install dev & prod deps
+# install dependencies
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-# compile TS to JS
+# copy source and compile
 COPY tsconfig.json ./
-COPY src ./src
+COPY src/ ./src
 RUN yarn build
 
 # ——— Stage 2: runtime ———
@@ -19,16 +19,19 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# only prod deps
+# install only production deps
 COPY package.json yarn.lock ./
 RUN yarn install --production --frozen-lockfile
 
 # copy compiled output
 COPY --from=builder /app/dist ./dist
 
-# expose the sensor-service port
+# set environment
 ENV NODE_ENV=production
-EXPOSE 4111
+
+# expose sensor-service port
+EXPOSE 4104
 
 # start the service
 CMD ["node", "dist/server.js"]
+

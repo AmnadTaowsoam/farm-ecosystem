@@ -5,7 +5,7 @@ import { join } from 'path';
 import { Algorithm } from 'jsonwebtoken';
 
 // โหลด .env จาก root ของ repo
-dotenv.config({ path: join(__dirname, '../../../../.env') });
+dotenv.config({ path: join(__dirname, '../../.env') });
 
 // 1) Database settings
 export const DB_HOST     = process.env.DB_HOST     || 'localhost';

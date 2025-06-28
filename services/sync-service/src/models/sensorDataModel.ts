@@ -1,4 +1,4 @@
-// services/sensor-service/src/models/sensorDataModel.ts
+// services/sync-service/src/models/sensorDataModel.ts
 
 import {
   Entity,

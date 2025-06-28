@@ -9,6 +9,9 @@ export class EconomicData {
   @PrimaryGeneratedColumn({ name: 'id' })
   id!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
   @Column({ name: 'farm_id', type: 'integer', nullable: true })
   farmId?: number;
 

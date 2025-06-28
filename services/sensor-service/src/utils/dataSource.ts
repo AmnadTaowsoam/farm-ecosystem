@@ -20,7 +20,7 @@ export const AppDataSource = new DataSource({
   database: DB_NAME,
   synchronize: false,
   logging: false,
-  schema: "smart_farming",
+  schema: "sensors",
   entities: [SensorData],
 });
 

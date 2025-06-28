@@ -12,6 +12,9 @@ export class House {
   @PrimaryGeneratedColumn()
   house_id!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
   @Column()
   farm_id!: number;
 

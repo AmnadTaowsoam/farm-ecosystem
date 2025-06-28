@@ -16,6 +16,10 @@ export class DeviceGroup {
   @PrimaryGeneratedColumn({ name: 'group_id' })
   group_id!: number;
 
+  /** Tenant isolation: reference to customer */
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
   @Column({ length: 100 })
   name!: string;
 

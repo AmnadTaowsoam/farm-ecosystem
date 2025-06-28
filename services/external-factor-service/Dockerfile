@@ -28,7 +28,7 @@ COPY --from=builder /app/dist ./dist
 
 # expose the sensor-service port
 ENV NODE_ENV=production
-EXPOSE 4107
+EXPOSE 4112
 
 # start the service
 CMD ["node", "dist/server.js"]

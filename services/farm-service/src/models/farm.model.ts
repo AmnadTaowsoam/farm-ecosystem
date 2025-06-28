@@ -6,7 +6,7 @@ export class Farm {
   @PrimaryGeneratedColumn()
   farm_id!: number;
 
-  @Column()
+  @Column({ name: 'customer_id', type: 'int' })
   customer_id!: number;
 
   @Column({ length: 255 })

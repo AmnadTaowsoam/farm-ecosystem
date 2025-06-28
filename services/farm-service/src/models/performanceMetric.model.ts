@@ -6,6 +6,9 @@ export class PerformanceMetric {
   @PrimaryColumn('bigint')
   id!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
   @PrimaryColumn({ type: 'date' })
   recorded_date!: string;
 

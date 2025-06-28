@@ -6,6 +6,9 @@ export class HealthRecord {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
   @Column()
   animal_id!: number;
 

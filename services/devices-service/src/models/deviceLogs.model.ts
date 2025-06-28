@@ -14,6 +14,10 @@ export class DeviceLog {
   @PrimaryGeneratedColumn({ name: 'log_id' })
   log_id!: number;
 
+  /** Tenant isolation: reference to customer */
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
+
   @Column()
   device_id!: number;
 

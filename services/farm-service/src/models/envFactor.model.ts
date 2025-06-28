@@ -5,6 +5,9 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeor
 export class EnvironmentalFactor {
   @PrimaryGeneratedColumn()
   id!: number;
+  
+  @Column({ name: 'customer_id', type: 'int' })
+  customer_id!: number;
 
   @Column()
   farm_id!: number;
