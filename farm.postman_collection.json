@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "auth-service",
+			"name": "auth-service-comp",
 			"item": [
 				{
 					"name": "signup",
@@ -179,7 +179,7 @@
 			]
 		},
 		{
-			"name": "customer",
+			"name": "customer-comp",
 			"item": [
 				{
 					"name": "customer",
@@ -766,7 +766,7 @@
 			"item": []
 		},
 		{
-			"name": "device",
+			"name": "device-comp",
 			"item": [
 				{
 					"name": "device",
@@ -6539,1308 +6539,1343 @@
 			"name": "feed",
 			"item": [
 				{
-					"name": "Create New Feed Batch",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \r\n    \"productionDate\": \"2025-05-01T00:00:00Z\", \r\n    \"farmId\": 1, \r\n    \"formulaId\": 2, \r\n    \"formulaNo\": 3, \r\n    \"lineNo\": \"LN01\", \r\n    \"batchNo\": \"B123\", \r\n    \"feedType\": \r\n    \"TypeA\"\r\n} "
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batches",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batches"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Feed Batch",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batches",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batches"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get feed batch by id",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batches/2025-05-01/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batches",
-								"2025-05-01",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update feed batch by id",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"farmId\": 10\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batches/?id=1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batches",
-								""
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Feed Batch",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batches/:productionDate/:feedBatchId",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batches",
-								":productionDate",
-								":feedBatchId"
-							],
-							"variable": [
-								{
-									"key": "productionDate",
-									"value": "2025-05-01T00:00:00.000Z",
-									"type": "string"
+					"name": "feedBatchs",
+					"item": [
+						{
+							"name": "Create New Feed Batch",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"productionDate\": \"2025-05-01T00:00:00Z\", \r\n    \"farmId\": 1, \r\n    \"formulaId\": 2, \r\n    \"formulaNo\": 3, \r\n    \"lineNo\": \"LN01\", \r\n    \"batchNo\": \"B123\", \r\n    \"feedType\": \r\n    \"TypeA\"\r\n} "
 								},
-								{
-									"key": "feedBatchId",
-									"value": "5",
-									"type": "string"
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batches",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batches"
+									]
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create All Physical Quality",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\", \n    \"feedBatchId\": 1, \"propertyName\": \n    \"Moisture\", \"propertyValue\": 12.5, \n    \"unit\": \"%\" \n    } ",
-							"options": {
-								"raw": {
-									"language": "json"
+							"response": []
+						},
+						{
+							"name": "Get All Feed Batch",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batches",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batches"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/physical-quality",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"physical-quality"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Physical Quality",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/physical-quality",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"physical-quality"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Physical Quality with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
+						{
+							"name": "Get feed batch by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/physical-quality/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"physical-quality",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Physical Quality with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"propertyValue\": 17.0\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/physical-quality/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"physical-quality",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Physical Quality with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/physical-quality/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"physical-quality",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Chemical Quality",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\", \n    \"feedBatchId\": 1, \n    \"nutrientName\": \"Protein\", \n    \"amount\": 20.5, \n    \"unit\": \"%\"\n     } ",
-							"options": {
-								"raw": {
-									"language": "json"
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batches/2025-05-01/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batches",
+										"2025-05-01",
+										"1"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/chemical-quality",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"chemical-quality"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Chemical Quality",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/chemical-quality",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"chemical-quality"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Chemical Quality with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/chemical-quality/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"chemical-quality",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Chemical Quality with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"amount\": 21.0\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/chemical-quality/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"chemical-quality",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Chemical Quality with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/Chemical-quality/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"Chemical-quality",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Pellet Mill Condition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\",\n    \"feedBatchId\": 1,\n    \"parameterName\": \"Temperature\",\n    \"parameterValue\": \"85C\"\n    } ",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Update feed batch by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"farmId\": 10\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batches/?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batches",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/pellet-mill-condition",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"pellet-mill-condition"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Pellet Mill Condition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/pellet-mill-condition",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"pellet-mill-condition"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Pellet Mill Condition with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/chemical-quality/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"chemical-quality",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Pellet Mill Condition with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"parameterValue\": \"90C\" \r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/pellet-mill-condition/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"pellet-mill-condition",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Pellet Mill Condition with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/pellet-mill-condition/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"pellet-mill-condition",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Mixing Condition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\"\n    , \"feedBatchId\": 1,\n     \"parameterName\": \"Speed\",\n      \"parameterValue\": \"120rpm\"\n} ",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Delete Feed Batch",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batches/:productionDate/:feedBatchId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batches",
+										":productionDate",
+										":feedBatchId"
+									],
+									"variable": [
+										{
+											"key": "productionDate",
+											"value": "2025-05-01T00:00:00.000Z",
+											"type": "string"
+										},
+										{
+											"key": "feedBatchId",
+											"value": "5",
+											"type": "string"
+										}
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/mixing-condition",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"mixing-condition"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get All Mixing Condition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/mixing-condition",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"mixing-condition"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Mixing Condition with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/mixing-condition/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"mixing-condition",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Mixing Condition with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"parameterValue\": \"130rpm\" \r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/mixing-condition/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"mixing-condition",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Mixing Condition with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/mixing-condition/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"mixing-condition",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Grinding Condition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\", \n    \"feedBatchId\": 1, \n    \"parameterName\": \"Pressure\", \n    \"parameterValue\": \"150psi\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "physicalQuality",
+					"item": [
+						{
+							"name": "Create Physical Quality",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\", \n    \"feedBatchId\": 1, \"propertyName\": \n    \"Moisture\", \"propertyValue\": 12.5, \n    \"unit\": \"%\" \n    } ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/physical-quality",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"physical-quality"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/grinding-condition",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"grinding-condition"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Grinding Condition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/grinding-condition",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"grinding-condition"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Grinding Condition with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/grinding-condition/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"grinding-condition",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Grinding Condition with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"parameterValue\": \"155psi\" \r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/grinding-condition/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"grinding-condition",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Grinding Condition with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4109/api/grinding-condition/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"grinding-condition",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Feed Batch Assignment",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\",\n    \"feedBatchId\": 1,\n    \"farmId\": 1,\n    \"houseId\": 1,\n    \"animalId\": 1,\n    \"assignedStart\": \"2025-06-01T08:00:00Z\",\n    \"assignedEnd\": \"2025-06-10T18:00:00Z\",\n    \"feedQuantity\": 100,\n    \"note\": \"Assignment note\"\n} ",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Get All Physical Quality",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/physical-quality",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"physical-quality"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batch-assignments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batch-assignments"
-							]
+						{
+							"name": "Get Physical Quality with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/physical-quality/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"physical-quality",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Physical Quality with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"propertyValue\": 17.0\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/physical-quality/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"physical-quality",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Physical Quality with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/physical-quality/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"physical-quality",
+										"3"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get All Feed Batch Assignment",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
+					"name": "chemicalQuality",
+					"item": [
+						{
+							"name": "Create Chemical Quality",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\", \n    \"feedBatchId\": 1, \n    \"nutrientName\": \"Protein\", \n    \"amount\": 20.5, \n    \"unit\": \"%\"\n     } ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/chemical-quality",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"chemical-quality"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batch-assignments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batch-assignments"
-							]
+							"response": []
+						},
+						{
+							"name": "Get All Chemical Quality",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/chemical-quality",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"chemical-quality"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Chemical Quality with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/chemical-quality/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"chemical-quality",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Chemical Quality with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 21.0\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/chemical-quality/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"chemical-quality",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Chemical Quality with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/Chemical-quality/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"Chemical-quality",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get All Feed Batch Assignment with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
+					"name": "pelletMillCondition",
+					"item": [
+						{
+							"name": "Create Pellet Mill Condition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\",\n    \"feedBatchId\": 1,\n    \"parameterName\": \"Temperature\",\n    \"parameterValue\": \"85C\"\n    } ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/pellet-mill-condition",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"pellet-mill-condition"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batch-assignments/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batch-assignments",
-								"1"
-							]
+							"response": []
+						},
+						{
+							"name": "Get All Pellet Mill Condition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/pellet-mill-condition",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"pellet-mill-condition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Pellet Mill Condition with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/chemical-quality/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"chemical-quality",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pellet Mill Condition with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"parameterValue\": \"90C\" \r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/pellet-mill-condition/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"pellet-mill-condition",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Pellet Mill Condition with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/pellet-mill-condition/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"pellet-mill-condition",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Update Feed Batch Assignment with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
+					"name": "mixingCondition",
+					"item": [
+						{
+							"name": "Create Mixing Condition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\"\n    , \"feedBatchId\": 1,\n     \"parameterName\": \"Speed\",\n      \"parameterValue\": \"120rpm\"\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/mixing-condition",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"mixing-condition"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"feedQuantity\": 110 \r\n}"
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batch-assignments/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batch-assignments",
-								"1"
-							]
+						{
+							"name": "Get All Mixing Condition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/mixing-condition",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"mixing-condition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Mixing Condition with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/mixing-condition/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"mixing-condition",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Mixing Condition with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"parameterValue\": \"130rpm\" \r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/mixing-condition/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"mixing-condition",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Mixing Condition with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/mixing-condition/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"mixing-condition",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Delete Feed Batch Assignment with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
-								"type": "text"
+					"name": "grindingCondition",
+					"item": [
+						{
+							"name": "Create Grinding Condition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\", \n    \"feedBatchId\": 1, \n    \"parameterName\": \"Pressure\", \n    \"parameterValue\": \"150psi\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/grinding-condition",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"grinding-condition"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:4109/api/feed-batch-assignments/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4109",
-							"path": [
-								"api",
-								"feed-batch-assignments",
-								"5"
-							]
+						{
+							"name": "Get All Grinding Condition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/grinding-condition",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"grinding-condition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Grinding Condition with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/grinding-condition/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"grinding-condition",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Grinding Condition with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"parameterValue\": \"155psi\" \r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/grinding-condition/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"grinding-condition",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Grinding Condition with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/grinding-condition/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"grinding-condition",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "feedBatchAssignments",
+					"item": [
+						{
+							"name": "Create Feed Batch Assignment",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"productionDate\": \"2025-05-01T00:00:00Z\",\n    \"feedBatchId\": 1,\n    \"farmId\": 1,\n    \"houseId\": 1,\n    \"animalId\": 1,\n    \"assignedStart\": \"2025-06-01T08:00:00Z\",\n    \"assignedEnd\": \"2025-06-10T18:00:00Z\",\n    \"feedQuantity\": 100,\n    \"note\": \"Assignment note\"\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batch-assignments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batch-assignments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Feed Batch Assignment",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batch-assignments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batch-assignments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Feed Batch Assignment with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batch-assignments/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batch-assignments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Feed Batch Assignment with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"feedQuantity\": 110 \r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batch-assignments/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batch-assignments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Feed Batch Assignment with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MDk5NTQzNiwiZXhwIjoxNzUxNjAwMjM2fQ.7UnqUeCPpp2uTXVdJkoZl4zNTBj0578UO2ejpwlNYDs",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4109/api/feed-batch-assignments/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4109",
+									"path": [
+										"api",
+										"feed-batch-assignments",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -7848,925 +7883,950 @@
 			"name": "formula",
 			"item": [
 				{
-					"name": "Create formula",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"formulaNo\":  \"F9310000011\",\n  \"name\":       \"F931\",\n  \"description\":\"TestA\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "formula",
+					"item": [
+						{
+							"name": "Create formula",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"formulaNo\":  \"F9310000011\",\n  \"name\":       \"F931\",\n  \"description\":\"TestA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formulas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formulas"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formulas",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formulas"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formula",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formulas",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formulas"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formula with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formulas/11",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formulas",
-								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update formula with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"formulaNo\":  \"01\" \r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formulas/11",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formulas",
-								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete formula with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formulas/15",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formulas",
-								"15"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create formulaAdditional",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"formulaId\": 16,\n  \"item\": \"Vitamin C\",\n  \"details\": \"50 mg per serving\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Get All formula",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formulas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formulas"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-additionals",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-additionals"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formulaAdditional",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-additionals",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-additionals"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formulaAdditional with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-additionals/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-additionals",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update formulaAdditional with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"details\": \"40 mg per serving\"\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-additionals/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-additionals",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete formulaAdditional with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-additionals//6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-additionals",
-								"",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create formulaComposition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"formulaId\": 1,\n  \"ingredient\": \"Corn Meal\",\n  \"percentage\": 45.5\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Get All formula with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formulas/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formulas",
+										"11"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-compositions",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-compositions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formulaComposition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-compositions",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-compositions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formulaComposition with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-compositions/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-compositions",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update formulaComposition with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"ingredient\": \"Soybean Meal\",\r\n  \"percentage\": 30.0\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-compositions/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-compositions",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete formulaComposition with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-compositions/7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-compositions",
-								"7"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create formulaEnergies",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"formulaId\": 11,\n  \"energyType\": \"kcal\",\n  \"value\": 250\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Update formula with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"formulaNo\":  \"01\" \r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formulas/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formulas",
+										"11"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-energies",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-energies"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formulaEnergies",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-energies",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-energies"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All formulaEnergies with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-energies/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-energies",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update formulaEnergies with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"energyType\": \"MJ\",\r\n  \"value\": 1.05\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-energies/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-energies",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete formulaEnergies with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-energies/9",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-energies",
-								"9"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create formula_nutrition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"formulaId\": 11,\n  \"nutrient\":  \"Protein\",\n  \"amount\":    12.5\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Delete formula with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formulas/15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formulas",
+										"15"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-nutritions",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-nutritions"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get All formula_nutrition",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
+					"name": "formulaAdditional",
+					"item": [
+						{
+							"name": "Create formulaAdditional",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"formulaId\": 16,\n  \"item\": \"Vitamin C\",\n  \"details\": \"50 mg per serving\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-additionals",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-additionals"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-nutritions",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-nutritions"
-							]
+							"response": []
+						},
+						{
+							"name": "Get All formulaAdditional",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-additionals",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-additionals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All formulaAdditional with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-additionals/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-additionals",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update formulaAdditional with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"details\": \"40 mg per serving\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-additionals/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-additionals",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete formulaAdditional with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-additionals//6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-additionals",
+										"",
+										"6"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get All formula_nutrition with ID",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
+					"name": "formulaComposition",
+					"item": [
+						{
+							"name": "Create formulaComposition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"formulaId\": 1,\n  \"ingredient\": \"Corn Meal\",\n  \"percentage\": 45.5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-compositions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-compositions"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4110/api/formula-nutritions/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-nutritions",
-								"1"
-							]
+							"response": []
+						},
+						{
+							"name": "Get All formulaComposition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-compositions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-compositions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All formulaComposition with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-compositions/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-compositions",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update formulaComposition with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ingredient\": \"Soybean Meal\",\r\n  \"percentage\": 30.0\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-compositions/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-compositions",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete formulaComposition with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-compositions/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-compositions",
+										"7"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Update formula_nutrition with ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
+					"name": "formulaEnergy",
+					"item": [
+						{
+							"name": "Create formulaEnergies",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"formulaId\": 11,\n  \"energyType\": \"kcal\",\n  \"value\": 250\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-energies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-energies"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"nutrient\": \"Protein\",\r\n  \"amount\":   14.0\r\n}"
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-nutritions/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-nutritions",
-								"1"
-							]
+						{
+							"name": "Get All formulaEnergies",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-energies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-energies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All formulaEnergies with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-energies/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-energies",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update formulaEnergies with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"energyType\": \"MJ\",\r\n  \"value\": 1.05\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-energies/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-energies",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete formulaEnergies with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-energies/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-energies",
+										"9"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Delete formula_nutrition with ID",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
-								"type": "text"
+					"name": "formulaNutrition",
+					"item": [
+						{
+							"name": "Create formula_nutrition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"formulaId\": 11,\n  \"nutrient\":  \"Protein\",\n  \"amount\":    12.5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-nutritions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-nutritions"
+									]
+								}
 							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:4110/api/formula-nutritions/6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4110",
-							"path": [
-								"api",
-								"formula-nutritions",
-								"6"
-							]
+						{
+							"name": "Get All formula_nutrition",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-nutritions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-nutritions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All formula_nutrition with ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4110/api/formula-nutritions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-nutritions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update formula_nutrition with ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nutrient\": \"Protein\",\r\n  \"amount\":   14.0\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-nutritions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-nutritions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete formula_nutrition with ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:4110/api/formula-nutritions/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4110",
+									"path": [
+										"api",
+										"formula-nutritions",
+										"6"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
