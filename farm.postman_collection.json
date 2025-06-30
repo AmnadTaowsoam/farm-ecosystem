@@ -3165,6 +3165,509 @@
 			]
 		},
 		{
+			"name": "ecomonic-comp",
+			"item": [
+				{
+					"name": "Create Economic Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\":1,\n  \"farmId\": 2,\n  \"costType\": \"Feed\",\n  \"amount\": 5000.00,\n  \"animalPrice\": 1500.00,\n  \"feedCost\": 2000.00,\n  \"laborCost\": 800.00,\n  \"utilityCost\": 300.00,\n  \"medicationCost\": 200.00,\n  \"maintenanceCost\": 100.00,\n  \"otherCosts\": 100.00,\n  \"recordDate\": \"2025-06-27\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4111/api/economic-data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4111",
+							"path": [
+								"api",
+								"economic-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Economic Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4111/api/economic-data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4111",
+							"path": [
+								"api",
+								"economic-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Economic Data by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4111/api/economic-data/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4111",
+							"path": [
+								"api",
+								"economic-data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Economic Data by ID & customer_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4111/api/economic-data/2/customer_id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4111",
+							"path": [
+								"api",
+								"economic-data",
+								"2",
+								"customer_id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Economic Data",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"animalPrice\": 9999\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4111/api/economic-data/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4111",
+							"path": [
+								"api",
+								"economic-data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Economic Data",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4111/api/economic-data/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4111",
+							"path": [
+								"api",
+								"economic-data",
+								"20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "external-factor-comp",
+			"item": [
+				{
+					"name": "Create External Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\": 6,\n  \"farmId\": 20,\n  \"temperature\": 30.5,\n  \"humidity\": 65.0,\n  \"diseaseAlert\": false,\n  \"marketPrice\": 15.5,\n  \"feedSupply\": 1200,\n  \"recordDate\": \"2025-06-27\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4112/api/external-factors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4112",
+							"path": [
+								"api",
+								"external-factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All External Factors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4112/api/external-factors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4112",
+							"path": [
+								"api",
+								"external-factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get External Factor by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4112/api/external-factors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4112",
+							"path": [
+								"api",
+								"external-factors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get External Factor by ID & customer_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4112/api/external-factors/2/customer_id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4112",
+							"path": [
+								"api",
+								"external-factors",
+								"2",
+								"customer_id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update External Factor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"weather\": \"Rain\",\n    \"diseaseAlert\": false,\n    \"marketPrice\": 15.5,\n    \"feedSupply\": 1200,\n    \"weatherForecast\": \"hight\",\n    \"diseaseRiskScore\": null,\n    \"regulatoryChanges\": null,\n    \"recordDate\": \"2025-06-27\",\n    \"createdAt\": \"2025-06-27T09:34:28.176Z\",\n    \"updatedAt\": \"2025-06-27T09:34:28.176Z\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4112/api/external-factors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4112",
+							"path": [
+								"api",
+								"external-factors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete External Factor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4112/api/external-factors/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4112",
+							"path": [
+								"api",
+								"external-factors",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "farm",
 			"item": [
 				{
@@ -8827,305 +9330,6 @@
 							"response": []
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "ecomonic",
-			"item": [
-				{
-					"name": "Create Economic Data",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"farmId\": 2,\n  \"costType\": \"Feed\",\n  \"amount\": 5000.00,\n  \"animalPrice\": 1500.00,\n  \"feedCost\": 2000.00,\n  \"laborCost\": 800.00,\n  \"utilityCost\": 300.00,\n  \"medicationCost\": 200.00,\n  \"maintenanceCost\": 100.00,\n  \"otherCosts\": 100.00,\n  \"recordDate\": \"2025-06-27\"\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4111/api/economic-data",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4111",
-							"path": [
-								"api",
-								"economic-data"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Economic Data",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxMDI1MCwiZXhwIjoxNzUxNjE1MDUwfQ.DSyGl0ikDjZeu9qCR4NZKyBGZABgGCuM0_wW6ReE5nU"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4111/api/economic-data",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4111",
-							"path": [
-								"api",
-								"economic-data"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Economic Data by ID",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4111/api/economic-data/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4111",
-							"path": [
-								"api",
-								"economic-data",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Economic Data",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"farmId\": 2,\n    \"costType\": \"Feed\",\n    \"amount\": 10000,\n    \"animalPrice\": 2000,\n    \"feedCost\": 2000,\n    \"laborCost\": 800,\n    \"utilityCost\": 999,\n    \"medicationCost\": 888,\n    \"maintenanceCost\": 555,\n    \"otherCosts\": 100,\n    \"recordDate\": \"2025-06-27\",\n    \"createdAt\": \"2025-06-27T09:14:30.507Z\",\n    \"updatedAt\": \"2025-06-27T09:14:30.507Z\"\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4111/api/economic-data/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4111",
-							"path": [
-								"api",
-								"economic-data",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Economic Data",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4111/api/economic-data/20",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4111",
-							"path": [
-								"api",
-								"economic-data",
-								"20"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "external-factor",
-			"item": [
-				{
-					"name": "Create External Factor",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"farmId\": 20,\n  \"temperature\": 30.5,\n  \"humidity\": 65.0,\n  \"diseaseAlert\": false,\n  \"marketPrice\": 15.5,\n  \"feedSupply\": 1200,\n  \"recordDate\": \"2025-06-27\"\n}\n"
-						},
-						"url": {
-							"raw": "http://localhost:4112/api/external-factors",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4112",
-							"path": [
-								"api",
-								"external-factors"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All External Factors",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4112/api/external-factors",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4112",
-							"path": [
-								"api",
-								"external-factors"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get External Factor by ID",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4112/api/external-factors/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4112",
-							"path": [
-								"api",
-								"external-factors",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update External Factor",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"weather\": \"Rain\",\n    \"diseaseAlert\": false,\n    \"marketPrice\": 15.5,\n    \"feedSupply\": 1200,\n    \"weatherForecast\": \"hight\",\n    \"diseaseRiskScore\": null,\n    \"regulatoryChanges\": null,\n    \"recordDate\": \"2025-06-27\",\n    \"createdAt\": \"2025-06-27T09:34:28.176Z\",\n    \"updatedAt\": \"2025-06-27T09:34:28.176Z\"\n}"
-						},
-						"url": {
-							"raw": "http://localhost:4112/api/external-factors/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4112",
-							"path": [
-								"api",
-								"external-factors",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete External Factor",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTAxNTI0OCwiZXhwIjoxNzUxNjIwMDQ4fQ.lidDk8KUMFzduUNUckjxfdMVOGRj9-D6mELjWeyXsUY"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:4112/api/external-factors/10",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4112",
-							"path": [
-								"api",
-								"external-factors",
-								"10"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		}
