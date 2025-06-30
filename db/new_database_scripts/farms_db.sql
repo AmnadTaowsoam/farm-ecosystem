@@ -15,8 +15,8 @@ $$ LANGUAGE plpgsql;
 -- 1. farms
 CREATE TABLE farms.farms (
     farm_id      SERIAL PRIMARY KEY,
-    customer_id  INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id  INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
     name         VARCHAR(255)    NOT NULL,
     location     TEXT,
     status       VARCHAR(50)     DEFAULT 'active',
@@ -34,10 +34,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 2. houses
 CREATE TABLE farms.houses (
     house_id     SERIAL PRIMARY KEY,
-    customer_id  INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id      INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    customer_id  INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id      INTEGER NOT NULL,
+        --REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     name         VARCHAR(100),
     area         NUMERIC,
     capacity     INTEGER,
@@ -55,12 +55,12 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 3. animals
 CREATE TABLE farms.animals (
     animal_id    SERIAL PRIMARY KEY,
-    customer_id  INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id      INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
-    house_id     INTEGER
-        REFERENCES farms.houses(house_id) ON DELETE SET NULL,
+    customer_id  INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id      INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    house_id     INTEGER,
+        -- REFERENCES farms.houses(house_id) ON DELETE SET NULL,
     species      VARCHAR(50),
     breed        VARCHAR(50),
     birth_date   DATE,
@@ -78,10 +78,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 4. genetic_factors
 CREATE TABLE farms.genetic_factors (
     id           SERIAL PRIMARY KEY,
-    customer_id  INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    animal_id    INTEGER NOT NULL
-        REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
+    customer_id  INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    animal_id    INTEGER NOT NULL,
+        -- REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
     test_type    VARCHAR(100),
     result       TEXT,
     test_date    DATE,
@@ -99,10 +99,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 5. feed_programs
 CREATE TABLE farms.feed_programs (
     id             SERIAL PRIMARY KEY,
-    customer_id    INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id        INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    customer_id    INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id        INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     name           VARCHAR(100) NOT NULL,
     description    TEXT,
     effective_start TIMESTAMPTZ NOT NULL,
@@ -121,12 +121,12 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 6. feed_intake
 CREATE TABLE farms.feed_intake (
     id             SERIAL PRIMARY KEY,
-    customer_id    INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id        INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
-    animal_id      INTEGER
-        REFERENCES farms.animals(animal_id) ON DELETE SET NULL,
+    customer_id    INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id        INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    animal_id      INTEGER,
+        -- REFERENCES farms.animals(animal_id) ON DELETE SET NULL,
     feed_batch_id  INTEGER,
     feed_quantity  NUMERIC,
     created_at     TIMESTAMPTZ DEFAULT NOW() NOT NULL,
@@ -143,10 +143,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 7. environmental_factors
 CREATE TABLE farms.environmental_factors (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id          INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id          INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     ventilation_rate NUMERIC,
     note             TEXT,
     measurement_date DATE,
@@ -166,10 +166,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 8. housing_conditions
 CREATE TABLE farms.housing_conditions (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id          INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id          INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     flooring_humidity NUMERIC,
     animal_density    INTEGER,
     area              NUMERIC,
@@ -189,10 +189,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 9. water_quality
 CREATE TABLE farms.water_quality (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id          INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id          INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     fe               NUMERIC,
     pb               NUMERIC,
     note             TEXT,
@@ -211,10 +211,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 10. health_records
 CREATE TABLE farms.health_records (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    animal_id        INTEGER NOT NULL
-        REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    animal_id        INTEGER NOT NULL,
+        -- REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
     health_status    TEXT,
     disease          VARCHAR(100),
     vaccine          TEXT,
@@ -233,10 +233,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 11. welfare_indicators
 CREATE TABLE farms.welfare_indicators (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    animal_id        INTEGER NOT NULL
-        REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    animal_id        INTEGER NOT NULL,
+        -- REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
     footpad_lesion   BOOLEAN,
     stress_hormone   NUMERIC,
     recorded_date    DATE,
@@ -254,10 +254,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 12. performance_metrics (partitioned)
 CREATE TABLE farms.performance_metrics (
     id               BIGSERIAL NOT NULL,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    animal_id        INTEGER NOT NULL
-        REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    animal_id        INTEGER NOT NULL,
+        -- REFERENCES farms.animals(animal_id) ON DELETE CASCADE,
     adg              NUMERIC,
     fcr              NUMERIC,
     survival_rate    NUMERIC,
@@ -292,10 +292,10 @@ FOR EACH ROW EXECUTE PROCEDURE farms.update_updated_at_column();
 -- 13. operational_records
 CREATE TABLE farms.operational_records (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
-    farm_id          INTEGER NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+    farm_id          INTEGER NOT NULL,
+        -- REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     type             VARCHAR(100),
     description      TEXT,
     record_date      DATE,

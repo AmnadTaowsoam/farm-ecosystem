@@ -25,6 +25,35 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+// — เพิ่ม route นี้ก่อน /:id —
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    const id = Number(req.params.id);
+    const customerId = Number(req.params.customer_id);
+    try {
+      const item = await ExternalFactorsService.findByIdAndCustomer(id, customerId);
+      if (!item) {
+        return res.status(404).json({ message: 'Not found for this customer' });
+      }
+      res.json(item);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+// GET /external-factors/:id
+router.get('/:id', async (req, res, next) => {
+  try {
+    const item = await ExternalFactorsService.findById(+req.params.id);
+    if (!item) return res.status(404).json({ message: 'Not found' });
+    res.json(item);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // POST /external-factors
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

@@ -33,6 +33,24 @@ router.get(
   }
 );
 
+// GET /api/device-groups/:group_id/customer/:customer_id
+router.get(
+  '/:group_id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const group_id = Number(req.params.group_id);
+      const customer_id = Number(req.params.customer_id);
+
+      const group = await service.findByGroupIdAndCustomer(group_id, customer_id);
+      if (!group) return res.status(404).json({ message: 'DeviceGroup not found' });
+
+      res.json(group);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/device-groups */
 router.post(
   '/',

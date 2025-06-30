@@ -31,4 +31,19 @@ export class DeviceTypeService {
   delete(id: number): Promise<void> {
     return this.repo.delete(id).then(() => {});
   }
+
+  async findByTypeIdAndCustomerId(type_id: number, customer_id: number): Promise<DeviceType | null> {
+  const type = await this.repo.findOne({
+    where: { type_id },
+    relations: ['devices']
+  });
+
+  if (!type) return null;
+
+  // กรอง devices ที่ตรงกับ customer_id
+  type.devices = type.devices.filter(device => device.customer_id === customer_id);
+
+  return type;
+  }
+  
 }

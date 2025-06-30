@@ -7,11 +7,13 @@ CREATE SCHEMA IF NOT EXISTS devices;
 -- 2.50) ตารางกลุ่มอุปกรณ์
 CREATE TABLE devices.device_groups (
   group_id      SERIAL PRIMARY KEY,
-  customer_id   INT NOT NULL REFERENCES public.customers(customer_id),
+  customer_id   INT NOT NULL,
+    --REFERENCES public.customers(customer_id),
   name          VARCHAR(100) NOT NULL,
   note          TEXT,
   category      VARCHAR(50),
-  parent_id     INTEGER REFERENCES devices.device_groups(group_id) ON DELETE CASCADE,
+  parent_id     INTEGER,
+    -- REFERENCES devices.device_groups(group_id) ON DELETE CASCADE,
   created_at    TIMESTAMPTZ DEFAULT NOW(),
   updated_at    TIMESTAMPTZ DEFAULT NOW()
 );
@@ -59,10 +61,13 @@ FOR EACH ROW EXECUTE PROCEDURE devices.update_updated_at_column();
 -- 2.52) อุปกรณ์ (devices)
 CREATE TABLE devices.devices (
   device_id         SERIAL PRIMARY KEY,
-  customer_id       INT NOT NULL REFERENCES public.customers(customer_id),
+  customer_id       INT NOT NULL,
+    --REFERENCES public.customers(customer_id),
   house_id          INTEGER,
-  type_id           INTEGER REFERENCES devices.device_types(type_id) ON DELETE SET NULL,
-  group_id          INTEGER REFERENCES devices.device_groups(group_id) ON DELETE SET NULL,
+  type_id           INTEGER,
+    -- REFERENCES devices.device_types(type_id) ON DELETE SET NULL,
+  group_id          INTEGER,
+    -- EFERENCES devices.device_groups(group_id) ON DELETE SET NULL,
   model             VARCHAR(100),
   serial_number     VARCHAR(100),
   install_date      DATE,
@@ -104,9 +109,10 @@ FOR EACH ROW EXECUTE PROCEDURE devices.update_updated_at_column();
 -- 2.53) ตาราง audit logs สำหรับอุปกรณ์
 CREATE TABLE devices.device_logs (
   log_id        SERIAL PRIMARY KEY,
-  customer_id   INT NOT NULL
-        REFERENCES public.customers(customer_id),
-  device_id     INTEGER NOT NULL REFERENCES devices.devices(device_id) ON DELETE CASCADE,
+  customer_id   INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
+  device_id     INTEGER NOT NULL,
+        -- REFERENCES devices.devices(device_id) ON DELETE CASCADE,
   event_type    VARCHAR(50) NOT NULL,   -- e.g. 'config_update','reboot','error'
   event_data    JSONB,
   performed_by  VARCHAR(100),
@@ -121,8 +127,10 @@ CREATE INDEX idx_device_logs_cust_device
 -- 2.54) ประวัติสถานะอุปกรณ์
 CREATE TABLE devices.device_status_history (
   id            SERIAL PRIMARY KEY,
-  customer_id   INT NOT NULL REFERENCES public.customers(customer_id),
-  device_id     INTEGER NOT NULL REFERENCES devices.devices(device_id) ON DELETE CASCADE,
+  customer_id   INT NOT NULL,
+    -- REFERENCES public.customers(customer_id),
+  device_id     INTEGER NOT NULL,
+    -- REFERENCES devices.devices(device_id) ON DELETE CASCADE,
   performed_by  VARCHAR(100),
   status        VARCHAR(50)   NOT NULL,
   changed_at    TIMESTAMPTZ   NOT NULL DEFAULT NOW(),

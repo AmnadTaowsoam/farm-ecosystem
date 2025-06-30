@@ -33,6 +33,13 @@ export class DeviceStatusHistoryService {
     return this.repo.findOne({ where: { id } });
   }
 
+  async findByDeviceAndCustomer(device_id: number, customer_id: number): Promise<DeviceStatusHistory[]> {
+    return this.repo.find({
+      where: { device_id, customer_id },
+      order: { changed_at: 'DESC' }
+    });
+  }
+
   /**
    * Create a new status history record.
    * @param data Partial payload

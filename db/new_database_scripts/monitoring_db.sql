@@ -5,8 +5,8 @@ CREATE SCHEMA IF NOT EXISTS monitoring;
 -- 1. alerts (per-customer)
 CREATE TABLE monitoring.alerts (
     alert_id     SERIAL       PRIMARY KEY,
-    customer_id  INT           NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id  INT           NOT NULL,
+        -- REFERENCES public.customers(customer_id),
     farm_id      INTEGER       NOT NULL,
     alert_type   VARCHAR(100)  NOT NULL,
     description  TEXT,
@@ -25,8 +25,8 @@ CREATE INDEX idx_alerts_cust_farm_status
 -- 2. alert_rules (per-customer, if you want each customer to have their own rules)
 CREATE TABLE monitoring.alert_rules (
     rule_id      SERIAL       PRIMARY KEY,
-    customer_id  INT           NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id  INT           NOT NULL,
+        -- REFERENCES public.customers(customer_id),
     name         VARCHAR(100)  NOT NULL,
     metric_name  VARCHAR(100)  NOT NULL,
     threshold    NUMERIC       NOT NULL,

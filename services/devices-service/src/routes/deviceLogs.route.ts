@@ -92,4 +92,20 @@ router.delete('/:id', async (req: Request, res: Response, next: NextFunction) =>
   }
 });
 
+// GET /api/device-logs/:device_id/customer/:customer_id
+router.get('/:device_id/customer_id/:customer_id', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const device_id = Number(req.params.device_id);
+    const customer_id = Number(req.params.customer_id);
+    if (isNaN(device_id) || isNaN(customer_id)) {
+      return res.status(400).json({ error: 'Invalid parameters' });
+    }
+
+    const logs = await service.findByDeviceAndCustomer(device_id, customer_id);
+    res.json(logs);
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;

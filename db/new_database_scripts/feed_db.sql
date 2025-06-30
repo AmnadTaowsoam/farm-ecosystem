@@ -116,8 +116,8 @@ CREATE TABLE feeds.feed_batch_assignments (
     assignment_id    SERIAL       PRIMARY KEY,
     production_date  TIMESTAMPTZ  NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
-    farm_id          INTEGER      NOT NULL
-        REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
+    farm_id          INTEGER      NOT NULL,
+        --REFERENCES farms.farms(farm_id) ON DELETE CASCADE,
     house_id         INTEGER,
     animal_id        INTEGER,
     assigned_start   TIMESTAMPTZ  NOT NULL,

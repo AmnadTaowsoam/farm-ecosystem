@@ -5,8 +5,8 @@ CREATE SCHEMA IF NOT EXISTS economics;
 -- 1. economic_data with tenant isolation
 CREATE TABLE economics.economic_data (
     id               SERIAL PRIMARY KEY,
-    customer_id      INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id      INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
     farm_id          INTEGER                   NOT NULL,
     cost_type        VARCHAR(100)              NOT NULL,
     amount           NUMERIC,

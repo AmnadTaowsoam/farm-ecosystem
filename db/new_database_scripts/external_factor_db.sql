@@ -5,8 +5,8 @@ CREATE SCHEMA IF NOT EXISTS external_factors;
 -- 1. external_factors with tenant isolation
 CREATE TABLE external_factors.external_factors (
     id                  SERIAL PRIMARY KEY,
-    customer_id         INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id         INT NOT NULL,
+        -- REFERENCES public.customers(customer_id),
     farm_id             INTEGER                   NOT NULL,
     weather             JSONB,
     disease_alert       JSONB,

@@ -23,6 +23,11 @@ export class EconomicDataService {
     return this.repo.findOneBy({ id });
   }
 
+    // เพิ่มเมธอดนี้
+  async findByIdAndCustomer(id: number, customerId: number): Promise<EconomicData | null> {
+    return this.repo.findOneBy({ id, customer_id: customerId });
+  }
+
   async update(id: number, data: Partial<EconomicData>): Promise<EconomicData> {
     await this.repo.update(id, data);
     const updated = await this.findById(id);

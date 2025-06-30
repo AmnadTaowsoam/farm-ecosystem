@@ -2,11 +2,15 @@
 
 CREATE SCHEMA IF NOT EXISTS analytics;
 
+-- ลบตารางเก่าก่อนสร้างใหม่
+DROP TABLE IF EXISTS analytics.feature_store CASCADE;
+DROP TABLE IF EXISTS analytics.model_results CASCADE;
+
 -- 1. feature_store
 CREATE TABLE analytics.feature_store (
     feature_id     SERIAL PRIMARY KEY,
-    customer_id    INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id    INT NOT NULL,
+        --REFERENCES public.customers(customer_id)
     animal_id      INTEGER             NOT NULL,
     feature_name   VARCHAR(100)        NOT NULL,
     feature_value  NUMERIC             NOT NULL,
@@ -40,8 +44,8 @@ FOR EACH ROW EXECUTE PROCEDURE analytics.update_updated_at_column();
 -- 2. model_results
 CREATE TABLE analytics.model_results (
     result_id      SERIAL PRIMARY KEY,
-    customer_id    INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id    INT NOT NULL,
+        --REFERENCES public.customers(customer_id)
     animal_id      INTEGER             NOT NULL,
     model_name     VARCHAR(100)        NOT NULL,
     prediction     JSONB               NOT NULL,

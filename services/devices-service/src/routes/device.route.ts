@@ -39,6 +39,31 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
 });
 
 /**
+ * GET /api/devices/customer_id/:customer_id
+ * Fetch all devices by customer_id
+ */
+router.get('/:device_id/customer_id/:customer_id', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const device_id = Number(req.params.device_id);
+    const customer_id = Number(req.params.customer_id);
+    if (isNaN(device_id) || isNaN(customer_id)) {
+      return res.status(400).json({ error: 'Invalid parameters' });
+    }
+
+    const device = await service.findByDeviceIdAndCustomerId(device_id, customer_id);
+    if (!device) {
+      return res.status(404).json({ message: 'Device not found' });
+    }
+
+    res.json(device);
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+
+/**
  * POST /api/devices
  * Create a new device
  */

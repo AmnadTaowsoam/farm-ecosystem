@@ -23,6 +23,11 @@ export class ExternalFactorsService {
     return this.repo.findOneBy({ id });
   }
 
+  // — เพิ่มเมธอดนี้ —
+  async findByIdAndCustomer(id: number, customerId: number): Promise<ExternalFactors | null> {
+    return this.repo.findOneBy({ id, customer_id: customerId });
+  }
+
   async update(id: number, data: Partial<ExternalFactors>): Promise<ExternalFactors> {
     await this.repo.update(id, data);
     const updated = await this.findById(id);

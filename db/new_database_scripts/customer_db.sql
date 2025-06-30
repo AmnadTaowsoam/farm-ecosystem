@@ -13,7 +13,7 @@ CREATE TABLE customers.customers (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_customers_email ON customers.customers(email);
+CREATE INDEX IF NOT EXISTS idx_customers_email ON customers.customers(email);
 
 CREATE OR REPLACE FUNCTION customers.update_updated_at_column()
 RETURNS TRIGGER AS $$
@@ -30,6 +30,7 @@ BEFORE UPDATE ON customers.customers
 FOR EACH ROW EXECUTE PROCEDURE customers.update_updated_at_column();
 
 -- ถ้าต้องการ เพิ่มตาราง subscription ในฐานข้อมูลเดียวกัน
+DROP TABLE IF EXISTS customers.subscriptions CASCADE;
 
 CREATE TABLE customers.subscriptions (
     subscription_id SERIAL PRIMARY KEY,
@@ -42,8 +43,10 @@ CREATE TABLE customers.subscriptions (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+DROP INDEX IF EXISTS idx_subscriptions_customer_id;
 CREATE INDEX idx_subscriptions_customer_id ON customers.subscriptions(customer_id);
 
+DROP FUNCTION IF EXISTS customers.update_subscriptions_updated_at_column();
 CREATE OR REPLACE FUNCTION customers.update_subscriptions_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -53,7 +56,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_subscriptions_updated_at ON customers.subscriptions;
-
 CREATE TRIGGER update_subscriptions_updated_at
 BEFORE UPDATE ON customers.subscriptions
 FOR EACH ROW EXECUTE PROCEDURE customers.update_subscriptions_updated_at_column();

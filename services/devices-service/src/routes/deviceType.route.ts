@@ -27,6 +27,24 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/device-types/:type_id/customer/:customer_id */
+router.get('/:type_id/customer_id/:customer_id', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const type_id = Number(req.params.type_id);
+    const customer_id = Number(req.params.customer_id);
+    if (isNaN(type_id) || isNaN(customer_id)) {
+      return res.status(400).json({ error: 'Invalid parameters' });
+    }
+
+    const result = await service.findByTypeIdAndCustomerId(type_id, customer_id);
+    if (!result) return res.status(404).json({ message: 'DeviceType not found' });
+
+    res.json(result);
+  } catch (err) {
+    next(err);
+  }
+});
+
 /** POST /api/device-types */
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

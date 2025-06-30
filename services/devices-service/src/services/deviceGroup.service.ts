@@ -27,6 +27,17 @@ export class DeviceGroupService {
     });
   }
 
+  // ✅ เพิ่มตรงนี้
+  async findByGroupIdAndCustomer(group_id: number, customer_id: number): Promise<DeviceGroup | null> {
+    return this.repo.findOne({
+      where: {
+        group_id,
+        customer_id,
+      },
+      relations: ['devices', 'parent', 'children'],
+    });
+  }
+  
   /**
    * Create a new device group, with optional parent hierarchy
    */
@@ -35,12 +46,14 @@ export class DeviceGroupService {
     note?: string;
     category?: string;
     parent_id?: number | null;
+    customer_id: number; // ✅ ต้องเพิ่มเข้า type ด้วย
   }): Promise<DeviceGroup> {
     // Build new entity with possible parent reference
     const group = this.repo.create({
       name: data.name,
       note: data.note,
       category: data.category,
+      customer_id: data.customer_id, // ✅ เพิ่มตรงนี้
       parent: data.parent_id ? { group_id: data.parent_id } as DeviceGroup : undefined,
     });
 

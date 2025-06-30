@@ -13,7 +13,8 @@ CREATE TABLE formulas.formula (
 -- ตารางสูตรส่วนประกอบ composition
 CREATE TABLE formulas.formula_composition (
   id SERIAL PRIMARY KEY,
-  formula_id INTEGER NOT NULL REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
+  formula_id INTEGER NOT NULL,
+    -- REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
   ingredient VARCHAR(255) NOT NULL,
   percentage NUMERIC NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
@@ -23,7 +24,8 @@ CREATE TABLE formulas.formula_composition (
 -- ตารางสูตรข้อมูลพลังงาน
 CREATE TABLE formulas.formula_energy (
   id SERIAL PRIMARY KEY,
-  formula_id INTEGER NOT NULL REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
+  formula_id INTEGER NOT NULL, 
+    -- REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
   energy_type VARCHAR(100) NOT NULL,
   value NUMERIC NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
@@ -33,7 +35,8 @@ CREATE TABLE formulas.formula_energy (
 -- ตารางสูตรข้อมูลโภชนาการ
 CREATE TABLE formulas.formula_nutrition (
   id SERIAL PRIMARY KEY,
-  formula_id INTEGER NOT NULL REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
+  formula_id INTEGER NOT NULL, 
+    -- REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
   nutrient VARCHAR(100) NOT NULL,
   amount NUMERIC NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
@@ -43,7 +46,8 @@ CREATE TABLE formulas.formula_nutrition (
 -- ตารางสูตรข้อมูลเพิ่มเติม (วิตามิน, แร่ธาตุ ฯลฯ)
 CREATE TABLE formulas.formula_additional (
   id SERIAL PRIMARY KEY,
-  formula_id INTEGER NOT NULL REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
+  formula_id INTEGER NOT NULL,
+    -- REFERENCES formulas.formula(formula_id) ON DELETE CASCADE,
   item VARCHAR(100) NOT NULL,
   details TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,

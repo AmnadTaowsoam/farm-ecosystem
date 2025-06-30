@@ -36,6 +36,13 @@ export class DeviceLogService {
     return await this.repo.save(log);
   }
 
+  async findByDeviceAndCustomer(device_id: number, customer_id: number): Promise<DeviceLog[]> {
+  return this.repo.find({
+    where: { device_id, customer_id },
+    order: { created_at: 'DESC' },
+  });
+}
+
   /**
    * Update an existing log entry by ID.
    * @param id Log ID

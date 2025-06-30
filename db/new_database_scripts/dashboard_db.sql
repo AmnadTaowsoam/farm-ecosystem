@@ -5,8 +5,8 @@ CREATE SCHEMA IF NOT EXISTS dashboard;
 -- 1. dashboard_cache
 CREATE TABLE dashboard.dashboard_cache (
     cache_id      SERIAL PRIMARY KEY,
-    customer_id   INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id   INT NOT NULL,
+        --REFERENCES public.customers(customer_id)
     farm_id       INTEGER                   NOT NULL,
     metric_name   VARCHAR(100)              NOT NULL,
     metric_value  NUMERIC                   NOT NULL,
@@ -39,8 +39,8 @@ FOR EACH ROW EXECUTE PROCEDURE dashboard.update_updated_at_column();
 -- 2. user_dashboard_config
 CREATE TABLE dashboard.user_dashboard_config (
     config_id     SERIAL PRIMARY KEY,
-    customer_id   INT NOT NULL
-        REFERENCES public.customers(customer_id),
+    customer_id   INT NOT NULL,
+        --REFERENCES public.customers(customer_id)
     user_id       INTEGER                   NOT NULL,
     config        JSONB                     NOT NULL,
     updated_at    TIMESTAMPTZ DEFAULT NOW()

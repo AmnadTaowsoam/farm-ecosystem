@@ -49,6 +49,18 @@ export class DeviceService {
   }
 
   /**
+   * Fetch all devices by customer_id.
+   * @param customer_id
+   */
+  async findByDeviceIdAndCustomerId(device_id: number, customer_id: number): Promise<Device | null> {
+    return this.repo.findOne({
+      where: { device_id, customer_id },
+      relations: ['type', 'group', 'status_history']
+    });
+  }
+
+
+  /**
    * Update an existing device by ID.
    * @param id Device ID
    * @param data Partial<Device> fields to update
