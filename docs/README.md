@@ -85,7 +85,8 @@ FarmIQ/
 │   └── shared/                         # Common libraries & utilities
 ├── frontend/                           # Client Applications
 │   ├── dashboard/                      # React web dashboard
-│   ├── device-manage-app/              # React Native / Web for device ops
+│   ├── device-manage-app/              # (Port:4200)React Native / Web for device ops
+│   ├── farm-manage-app/                # (Port:4201)React Native / Web for device ops
 │   └── mobile-app/                     # Optional React Native mobile UI
 ├── infra/                              # Infrastructure as Code
 │   ├── docker/                         # Dockerfiles & compose (dev)

@@ -22,29 +22,52 @@ services:
       timeout: 5s
       retries: 5
 
-  sensor-service:
+  # sensor-service:
+  #   build:
+  #     context: ./services/sensor-service/
+  #     dockerfile: Dockerfile
+  #   container_name: sensor_service
+  #   image: sensor_service:latest
+  #   env_file:
+  #     - ./.env
+  #   # ถ้าไม่ต้อง expose ให้ภายนอก ใช้ expose แทน
+  #   # expose:
+  #   #   - "4101"
+  #   ports:
+  #     - "${SENSOR_SERVICE_PORT}:4101"
+  #   depends_on:
+  #     - timescaledb
+  #   networks:
+  #     - farm_network
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "curl -f http://localhost:4101/sensor/latest || exit 1"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+  #   restart: always
+
+  auth-service:
     build:
-      context: ./services/sensor-service/
+      context: ./services/auth-service/
       dockerfile: Dockerfile
-    container_name: sensor_service
-    image: sensor_service:latest
+    container_name: auth_service
+    image: auth_service:latest
     env_file:
       - ./.env
-    # ถ้าไม่ต้อง expose ให้ภายนอก ใช้ expose แทน
-    # expose:
-    #   - "4101"
     ports:
-      - "${SENSOR_SERVICE_PORT}:4101"
+      - "4100:4100"
     depends_on:
-      - timescaledb
+      - customer-service
     networks:
       - farm_network
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:4101/sensor/latest || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:4100/sensor/latest || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
     restart: always
+
+
 
 networks:
   farm_network:

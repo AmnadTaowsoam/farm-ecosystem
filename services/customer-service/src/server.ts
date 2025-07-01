@@ -7,7 +7,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import { AppDataSource } from './utils/dataSource';
-import routes from './routes';
+import customerRouter from './routes/customer.route';
+import mainRouter from './routes/index';
 import { authenticateToken } from './middlewares/auth';
 import { errorHandler } from './middlewares/errorHandler';
 import { PORT } from './configs/config';
@@ -36,7 +37,8 @@ async function startServer() {
     // app.post('/api/auth/refresh', AuthController.refresh);
 
     // 5) Protected routes
-    app.use('/api', authenticateToken, routes);
+    app.use('/api/customers', customerRouter);
+    app.use('/api', authenticateToken, mainRouter);
 
     // 6) Global error handler
     app.use(errorHandler);

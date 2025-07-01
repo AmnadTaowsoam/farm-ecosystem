@@ -14,9 +14,14 @@ export function createAuthRouter(dataSource: DataSource) {
   const authService = new AuthService(userRepo, tokenRepo);
 
   router.post('/signup', async (req: Request, res: Response) => {
-    const { email, username, password } = req.body;
+    const { email, username, password, customer } = req.body;
+
+    if (!customer || typeof customer !== 'object') {
+      return res.status(400).json({ message: 'Customer data is required' });
+    }
+
     try {
-      const result = await authService.signup(email, username, password);
+      const result = await authService.signup(email, username, password, customer);
       res.status(201).json(result);
     } catch (err: any) {
       res.status(400).json({ message: err.message });

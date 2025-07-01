@@ -18,6 +18,11 @@ export class FarmService {
     return this.repo.findOne({ where: { farm_id: id } });
   }
 
+  // เพิ่ม method นี้
+  async findByCustomerId(customer_id: number): Promise<Farm[]> {
+    return this.repo.find({ where: { customer_id } });
+  }
+
   async create(data: Partial<Farm>): Promise<Farm> {
     const farm = this.repo.create(data);
     return this.repo.save(farm);

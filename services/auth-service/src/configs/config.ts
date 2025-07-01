@@ -23,6 +23,8 @@ export const DATABASE_URL =
   `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 
 export const PORT = Number(process.env.AUTH_SERVICE_PORT) || 4100;
+export const CUSTOMER_SERVICE_URL = process.env.CUSTOMER_SERVICE_URL!;
+
 export const JWT_SECRET = process.env.JWT_SECRET_KEY!;
 export const ACCESS_TOKEN_EXPIRE_MINUTES =
   Number(process.env.TOKEN_EXPIRATION_MINUTES) || 1440;
