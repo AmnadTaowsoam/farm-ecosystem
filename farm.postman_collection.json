@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"qi01@qi.com\",\r\n  \"username\":  \"qiadmin01\",\r\n  \"password\": \"P@ssw0rd\"\r\n}",
+							"raw": "{\r\n  \"email\": \"qiadmin@example.com\",\r\n  \"username\": \"qiadmin01\",\r\n  \"password\": \"password\",\r\n  \"customer\": {\r\n    \"customer_id\": 10\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -58,7 +58,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"qiadmin01\",\r\n  \"password\": \"P@ssw0rd\"\r\n}",
+							"raw": "{\r\n  \"username\": \"qiadmin01\",\r\n  \"password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,13 +147,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MDMyNCwiZXhwIjoxNzUxODY1MTI0fQ.hcCwI0FZH14GL-KPk9v1PDiGsvg6LaesgGBQx399ol8\"",
+								"value": "Bearer \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsInVzZXJuYW1lIjoicWlhZG1pbjAxIiwicm9sZSI6InVzZXIiLCJjdXN0b21lcl9pZCI6MTAsImlhdCI6MTc1MTM1MzgzMCwiZXhwIjoxNzUxNDQwMjMwfQ.vN0Z7X8iIQJckiyLmQfkT2gAfLQ5eKTP-JNt1jgXrKk\"",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MDMyNCwiZXhwIjoxNzUxODY1MTI0fQ.hcCwI0FZH14GL-KPk9v1PDiGsvg6LaesgGBQx399ol8\"\r\n}",
+							"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImlhdCI6MTc1MTM1Mzk1NywiZXhwIjoxNzUxOTU4NzU3fQ.mlZeoAH-IBR66ArjhjJDkfS5Y-hujctTI6jmtlD2oig\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -474,7 +474,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4107/api/customers/2",
+									"raw": "http://localhost:4107/api/customers/5",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -483,7 +483,7 @@
 									"path": [
 										"api",
 										"customers",
-										"2"
+										"5"
 									]
 								}
 							},

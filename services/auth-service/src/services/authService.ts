@@ -1,3 +1,5 @@
+//services/auth-service/src/services/authService.ts
+
 import { Repository } from 'typeorm';
 import { User } from '../models/user.model';
 import { RefreshToken } from '../models/refreshToken.model';
@@ -5,8 +7,9 @@ import { hashPassword, comparePassword } from '../utils/hash';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET, ACCESS_TOKEN_EXPIRE_MINUTES, REFRESH_TOKEN_EXPIRE_DAYS } from '../configs/config';
 import fetch from 'node-fetch';
+import { CUSTOMER_SERVICE_URL } from '../configs/config';
 
-const CUSTOMER_SERVICE_URL = process.env.CUSTOMER_SERVICE_URL || 'http://localhost:3000/api/customers';
+//const CUSTOMER_SERVICE_URL = process.env.CUSTOMER_SERVICE_URL || 'http://localhost:3000/api/customers';
 
 export class AuthService {
   constructor(

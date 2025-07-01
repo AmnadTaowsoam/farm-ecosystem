@@ -23,7 +23,18 @@ export const DATABASE_URL =
   `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 
 export const PORT = Number(process.env.AUTH_SERVICE_PORT) || 4100;
-export const CUSTOMER_SERVICE_URL = process.env.CUSTOMER_SERVICE_URL!;
+
+//export const CUSTOMER_SERVICE_URL = process.env.CUSTOMER_SERVICE_URL!;
+
+// อ่านพอร์ตจาก env
+const CUSTOMER_PORT = process.env.CUSTOMER_SERVICE_PORT || '4107';
+const CUSTOMER_HOST = process.env.CUSTOMER_SERVICE_HOST || 'http://localhost';
+const CUSTOMER_PATH = '/api/customers';
+
+// ประกอบเป็น URL เต็ม
+export const CUSTOMER_SERVICE_URL =
+  `${CUSTOMER_HOST}:${CUSTOMER_PORT}${CUSTOMER_PATH}`;
+
 
 export const JWT_SECRET = process.env.JWT_SECRET_KEY!;
 export const ACCESS_TOKEN_EXPIRE_MINUTES =
