@@ -1,6 +1,6 @@
 // src/routes/farm.route.ts
 import { Router, Request, Response, NextFunction } from 'express';
-import { FarmService } from '../services/farm.service';
+import { FarmService } from '../services/farms.service';
 
 const router = Router();
 const service = new FarmService();
@@ -27,9 +27,8 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-<<<<<<< Updated upstream
 /** GET /api/farms/:id/customer_id/:customer_id */
-router.get(
+/**router.get(
   '/:id/customer_id/:customer_id',
   async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -44,8 +43,8 @@ router.get(
       next(err);
     }
   }
-);
-=======
+); */
+
 /** GET /api/farms/customer/:customer_id */
 router.get('/customer/:customer_id', async (req, res, next) => {
   try {
@@ -56,7 +55,6 @@ router.get('/customer/:customer_id', async (req, res, next) => {
     next(err);
   }
 });
->>>>>>> Stashed changes
 
 /** POST /api/farms */
 router.post('/', async (req, res, next) => {
