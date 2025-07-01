@@ -26,6 +26,24 @@ hrRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => 
     next(err);
   }
 });
+/** GET /api/health-records/:id/customer_id/:customer_id */
+hrRouter.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const house = await hrService.findOneByCustomer(id, customerId);
+      if (!house) {
+        return res.status(404).json({ message: 'House not found for this customer' });
+      }
+      res.json(house);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 
 /** POST /api/health-records */
 hrRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {

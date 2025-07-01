@@ -27,6 +27,24 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/animals/:id/customer_id/:customer_id */
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const animal = await service.findOneByCustomer(id, customerId);
+      if (!animal) {
+        return res.status(404).json({ message: 'Animal not found' });
+      }
+      res.json(animal);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/animals */
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

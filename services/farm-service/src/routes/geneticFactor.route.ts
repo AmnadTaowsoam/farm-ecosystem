@@ -27,6 +27,26 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/genetic-factors/:id/customer_id/:customer_id */
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const gf = await service.findOneByCustomer(id, customerId);
+      if (!gf) {
+        return res
+          .status(404)
+          .json({ message: 'GeneticFactor not found for this customer' });
+      }
+      res.json(gf);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/genetic-factors */
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

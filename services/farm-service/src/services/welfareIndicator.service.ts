@@ -18,6 +18,16 @@ export class WelfareIndicatorService {
     return this.repo.findOne({ where: { id } });
   }
 
+  // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<WelfareIndicator | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        customer_id: customerId
+      }
+    });
+  }  
+
   async create(data: Partial<WelfareIndicator>): Promise<WelfareIndicator> {
     const wi = this.repo.create(data);
     return this.repo.save(wi);

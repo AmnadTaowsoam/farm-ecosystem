@@ -18,6 +18,16 @@ export class FeedIntakeService {
     return this.repo.findOne({ where: { id } });
   }
 
+  // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<FeedIntake | null> {
+    return this.repo.findOne({
+      where: {
+        id: id,
+        customer_id: customerId
+      }
+    });
+  }
+
   async create(data: Partial<FeedIntake>): Promise<FeedIntake> {
     const intake = this.repo.create(data);
     return this.repo.save(intake);

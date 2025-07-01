@@ -27,6 +27,24 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+/** GET /api/farms/:id/customer_id/:customer_id */
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const farm = await service.findOneByCustomer(id, customerId);
+      if (!farm) {
+        return res.status(404).json({ message: 'Farm not found for this customer' });
+      }
+      res.json(farm);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/farms */
 router.post('/', async (req, res, next) => {
   try {

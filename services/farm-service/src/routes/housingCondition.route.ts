@@ -27,6 +27,26 @@ hcRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => 
   }
 });
 
+/** GET /api/housing-conditions/:id/customer_id/:customer_id */
+hcRouter.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const hc = await hcService.findOneByCustomer(id, customerId);
+      if (!hc) {
+        return res
+          .status(404)
+          .json({ message: 'HousingCondition not found for this customer' });
+      }
+      res.json(hc);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/housing-conditions */
 hcRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

@@ -18,6 +18,16 @@ export class GeneticFactorService {
     return this.repo.findOne({ where: { id } });
   }
 
+   // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<GeneticFactor | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        customer_id: customerId
+      }
+    });
+  } 
+
   async create(data: Partial<GeneticFactor>): Promise<GeneticFactor> {
     const gf = this.repo.create(data);
     return this.repo.save(gf);

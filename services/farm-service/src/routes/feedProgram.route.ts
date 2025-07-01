@@ -27,6 +27,26 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/feed-programs/:id/customer_id/:customer_id */
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const program = await service.findOneByCustomer(id, customerId);
+      if (!program) {
+        return res
+          .status(404)
+          .json({ message: 'FeedProgram not found for this customer' });
+      }
+      res.json(program);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/feed-programs */
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
