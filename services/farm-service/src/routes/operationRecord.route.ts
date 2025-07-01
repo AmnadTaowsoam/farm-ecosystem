@@ -27,6 +27,26 @@ orRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => 
   }
 });
 
+/** GET /api/operation-records/:id/customer_id/:customer_id */
+orRouter.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const record = await orService.findOneByCustomer(id, customerId);
+      if (!record) {
+        return res
+          .status(404)
+          .json({ message: 'OperationRecord not found for this customer' });
+      }
+      res.json(record);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/operational-records */
 orRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

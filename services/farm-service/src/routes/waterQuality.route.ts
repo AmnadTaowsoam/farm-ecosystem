@@ -27,6 +27,26 @@ wqRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => 
   }
 });
 
+/** GET /api/water-quality/:id/customer_id/:customer_id */
+wqRouter.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const record = await wqService.findOneByCustomer(id, customerId);
+      if (!record) {
+        return res
+          .status(404)
+          .json({ message: 'WaterQuality not found for this customer' });
+      }
+      res.json(record);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/water-quality */
 wqRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

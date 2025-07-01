@@ -23,6 +23,16 @@ export class FarmService {
     return this.repo.save(farm);
   }
 
+  // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<Farm | null> {
+    return this.repo.findOne({
+      where: {
+        farm_id: id,
+        customer_id: customerId
+      }
+    });
+  }
+
   async update(id: number, data: Partial<Farm>): Promise<Farm | null> {
     await this.repo.update(id, data);
     return this.findOne(id);

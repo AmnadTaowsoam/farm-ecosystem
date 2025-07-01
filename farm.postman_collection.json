@@ -3668,318 +3668,8 @@
 			]
 		},
 		{
-			"name": "farm",
+			"name": "farm-comp",
 			"item": [
-				{
-					"name": "houses",
-					"item": [
-						{
-							"name": "POST Create New House",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Cache-Control",
-										"value": "no-cache",
-										"name": "cache-control",
-										"type": "text"
-									},
-									{
-										"key": "Postman-Token",
-										"value": "<calculated when request is sent>",
-										"name": "postman-token",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"name": "content-type",
-										"type": "text"
-									},
-									{
-										"key": "Content-Length",
-										"value": "<calculated when request is sent>",
-										"name": "content-length",
-										"type": "text"
-									},
-									{
-										"key": "Host",
-										"value": "<calculated when request is sent>",
-										"name": "host",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "PostmanRuntime/7.39.1",
-										"name": "user-agent",
-										"type": "text"
-									},
-									{
-										"key": "Accept",
-										"value": "*/*",
-										"name": "accept",
-										"type": "text"
-									},
-									{
-										"key": "Accept-Encoding",
-										"value": "gzip, deflate, br",
-										"name": "accept-encoding",
-										"type": "text"
-									},
-									{
-										"key": "Connection",
-										"value": "keep-alive",
-										"name": "connection",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"customer_id\": 2,\r\n  \"farm_id\": 1,\r\n  \"name\": \"House A\",\r\n  \"area\": 1200.5,\r\n  \"capacity\": 100\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/houses",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"houses"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET List Houses",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/houses",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"houses"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Single House",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/houses/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"houses",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PUT Update House",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"Updated House A\",\r\n  \"area\": 1300,\r\n  \"capacity\": 120\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/houses/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"houses",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE House",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Cache-Control",
-										"value": "no-cache",
-										"name": "cache-control",
-										"type": "text"
-									},
-									{
-										"key": "Postman-Token",
-										"value": "<calculated when request is sent>",
-										"name": "postman-token",
-										"type": "text"
-									},
-									{
-										"key": "Host",
-										"value": "<calculated when request is sent>",
-										"name": "host",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "PostmanRuntime/7.39.1",
-										"name": "user-agent",
-										"type": "text"
-									},
-									{
-										"key": "Accept",
-										"value": "*/*",
-										"name": "accept",
-										"type": "text"
-									},
-									{
-										"key": "Accept-Encoding",
-										"value": "gzip, deflate, br",
-										"name": "accept-encoding",
-										"type": "text"
-									},
-									{
-										"key": "Connection",
-										"value": "keep-alive",
-										"name": "connection",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/houses/11",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"houses",
-										"11"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
 				{
 					"name": "animals",
 					"item": [
@@ -4055,7 +3745,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"customer_id\": 5,\r\n  \"farm_id\": 1,\r\n  \"house_id\": 1,\r\n  \"species\": \"Chicken\",\r\n  \"breed\": \"Rhode Island Red\",\r\n  \"birth_date\": \"2023-02-15\"\r\n}",
+									"raw": "{\r\n  \"customer_id\": 6,\r\n  \"farm_id\": 1,\r\n  \"house_id\": 1,\r\n  \"species\": \"Chicken\",\r\n  \"breed\": \"Rhode Island Red\",\r\n  \"birth_date\": \"2023-02-15\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4086,8 +3776,50 @@
 								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4129,8 +3861,136 @@
 								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/animals/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"animals",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Single Animal & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4211,8 +4071,50 @@
 								"method": "DELETE",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNDc2MjIxLCJleHAiOjE3NTA1NjI2MjF9.A2TbaH1W9Vhx0FJNccCvD7k63Y_XqOovWm8Xzv840NY",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4231,16 +4133,16 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4107/api/animals/1",
+									"raw": "http://localhost:4108/api/animals/7",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "4107",
+									"port": "4108",
 									"path": [
 										"api",
 										"animals",
-										"1"
+										"7"
 									]
 								}
 							},
@@ -4249,10 +4151,10 @@
 					]
 				},
 				{
-					"name": "genetic factor",
+					"name": "Environmental Factors",
 					"item": [
 						{
-							"name": "POST Create New Genetic Factor",
+							"name": "POST Create  New environmental factor",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -4323,7 +4225,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"customer_id\": 5,\r\n  \"animal_id\": 1,\r\n  \"test_type\": \"DNA Sequencing\",\r\n  \"result\": \"Positive for marker X\",\r\n  \"test_date\": \"2025-05-01\"\r\n}",
+									"raw": "{\r\n    \"customer_id\": 1,\r\n    \"farm_id\": 1,\r\n    \"ventilation_rate\": 15,\r\n    \"note\": \"Good ventilation\",\r\n    \"measurement_date\": \"2025-06-20\",\r\n    \"effective_start\": \"2025-06-01T00:00:00Z\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4331,7 +4233,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/genetic-factors",
+									"raw": "http://localhost:4108/api/environmental-factors",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4339,14 +4241,14 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"genetic-factors"
+										"environmental-factors"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "GET List Genetic Factors",
+							"name": "GET All environmental factor",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -4354,8 +4256,50 @@
 								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4374,7 +4318,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/genetic-factors",
+									"raw": "http://localhost:4108/api/environmental-factors",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4382,14 +4326,14 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"genetic-factors"
+										"environmental-factors"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "GET Single Genetic Factor",
+							"name": "GET environmental factor by id",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -4397,8 +4341,50 @@
 								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4417,7 +4403,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/genetic-factors/2",
+									"raw": "http://localhost:4108/api/environmental-factors/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4425,21 +4411,161 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"genetic-factors",
-										"2"
+										"environmental-factors",
+										"1"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "PUT Update Genetic Factor",
+							"name": "GET environmental factor by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/environmental-factors/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"environmental-factors",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT environmental factor by id",
 							"request": {
 								"method": "PUT",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4450,7 +4576,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"test_type\": \"PCR Test\",\r\n  \"result\": \"Negative\",\r\n  \"test_date\": \"2025-06-15\"\r\n}",
+									"raw": "{\r\n    \"note\": \"Updated note\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4458,7 +4584,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/genetic-factors/2",
+									"raw": "http://localhost:4108/api/environmental-factors/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4466,21 +4592,21 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"genetic-factors",
-										"2"
+										"environmental-factors",
+										"1"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "DELETE Genetic Factor",
+							"name": "DELETE environmental factor",
 							"request": {
 								"method": "DELETE",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNDc2MjIxLCJleHAiOjE3NTA1NjI2MjF9.A2TbaH1W9Vhx0FJNccCvD7k63Y_XqOovWm8Xzv840NY",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
 										"type": "text"
 									},
 									{
@@ -4499,16 +4625,16 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4107/api/genetic-factors/1",
+									"raw": "http://localhost:4108/api/environmental-factors/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "4107",
+									"port": "4108",
 									"path": [
 										"api",
-										"genetic-factors",
-										"1"
+										"environmental-factors",
+										"2"
 									]
 								}
 							},
@@ -4525,8 +4651,62 @@
 								"method": "POST",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4537,7 +4717,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"customer_id\": 2,\r\n  \"name\": \"Red Farm\",\r\n  \"location\": \"123 Moo 4, Chiang Mai\",\r\n  \"status\": \"active\"\r\n}",
+									"raw": "{\r\n  \"customer_id\": 5,\r\n  \"name\": \"Red Farm\",\r\n  \"location\": \"123 Moo 4, Chiang Mai\",\r\n  \"status\": \"active\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4647,6 +4827,50 @@
 							"response": []
 						},
 						{
+							"name": "GET Single Farm & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/farms/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"farms",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "PUT Update Farm",
 							"request": {
 								"method": "PUT",
@@ -4693,8 +4917,50 @@
 								"method": "DELETE",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -4713,7 +4979,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/farms/2",
+									"raw": "http://localhost:4108/api/farms/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4722,221 +4988,7 @@
 									"path": [
 										"api",
 										"farms",
-										"2"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "feed programs",
-					"item": [
-						{
-							"name": "POST Create  New feed program",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"farm_id\": 1,\r\n    \"name\": \"Summer Feed\",\r\n    \"description\": \"Special feed for summer\",\r\n    \"effective_start\": \"2025-07-01T00:00:00Z\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/feed-programs",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"feed-programs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET All feed program",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/feed-programs",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"feed-programs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET feed program by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/feed-programs/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"feed-programs",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PUT feed program by id",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"description\": \"Updated description\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/feed-programs/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"feed-programs",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE feed program",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/feed-programs/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"feed-programs",
-										"2"
+										"3"
 									]
 								}
 							},
@@ -5129,54 +5181,58 @@
 							"response": []
 						},
 						{
-							"name": "PUT feed program by id",
+							"name": "GET feed intake by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
 										"type": "text"
 									},
 									{
-										"key": "Content-Type",
-										"value": "application/json",
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
 										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"feed_quantity\": 150\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/feed-intake/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"feed-intake",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE feed program",
-							"request": {
-								"method": "DELETE",
-								"header": [
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -5195,7 +5251,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/feed-intake/2",
+									"raw": "http://localhost:4108/api/feed-intake/4/customer_id/4",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5204,7 +5260,187 @@
 									"path": [
 										"api",
 										"feed-intake",
-										"2"
+										"4",
+										"customer_id",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT feed program by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"feed_quantity\": 180\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/feed-intake/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"feed-intake",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE feed program",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/feed-intake/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"feed-intake",
+										"3"
 									]
 								}
 							},
@@ -5213,10 +5449,10 @@
 					]
 				},
 				{
-					"name": "Environmental Factors",
+					"name": "feed programs",
 					"item": [
 						{
-							"name": "POST Create  New environmental factor",
+							"name": "POST Create  New feed program",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -5287,7 +5523,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"customer_id\": 1,\r\n    \"farm_id\": 1,\r\n    \"ventilation_rate\": 10.5,\r\n    \"note\": \"Good ventilation\",\r\n    \"measurement_date\": \"2025-06-20\",\r\n    \"effective_start\": \"2025-06-01T00:00:00Z\"\r\n}",
+									"raw": "{\r\n    \"customer_id\": 5,\r\n    \"farm_id\": 1,\r\n    \"name\": \"Summer Feed\",\r\n    \"description\": \"Special feed for summer\",\r\n    \"effective_start\": \"2025-07-01T00:00:00Z\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5295,7 +5531,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/environmental-factors",
+									"raw": "http://localhost:4108/api/feed-programs",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5303,14 +5539,99 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"environmental-factors"
+										"feed-programs"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "GET All environmental factor",
+							"name": "GET All feed program",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/feed-programs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"feed-programs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET feed program by id",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -5338,7 +5659,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/environmental-factors",
+									"raw": "http://localhost:4108/api/feed-programs/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5346,50 +5667,7 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"environmental-factors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET environmental factor by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/environmental-factors/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"environmental-factors",
+										"feed-programs",
 										"1"
 									]
 								}
@@ -5397,13 +5675,551 @@
 							"response": []
 						},
 						{
-							"name": "PUT environmental factor by id",
+							"name": "GET feed program by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/feed-programs/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"feed-programs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT feed program by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Updated desc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/feed-programs/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"feed-programs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE feed program",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/feed-programs/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"feed-programs",
+										"10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "genetic factor",
+					"item": [
+						{
+							"name": "POST Create New Genetic Factor",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": 5,\r\n  \"animal_id\": 1,\r\n  \"test_type\": \"DNA Sequencing\",\r\n  \"result\": \"Positive for marker X\",\r\n  \"test_date\": \"2025-05-01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/genetic-factors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"genetic-factors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET List Genetic Factors",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/genetic-factors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"genetic-factors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Single Genetic Factor",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/genetic-factors/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"genetic-factors",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Single Genetic Factor & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/genetic-factors/7/customer_id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"genetic-factors",
+										"7",
+										"customer_id",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Update Genetic Factor",
 							"request": {
 								"method": "PUT",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
 										"type": "text"
 									},
 									{
@@ -5414,7 +6230,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"note\": \"Updated note\"\r\n}",
+									"raw": "{\r\n  \"test_type\": \"PCR Test\",\r\n  \"result\": \"Negative\",\r\n  \"test_date\": \"2025-06-15\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5422,7 +6238,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/environmental-factors/1",
+									"raw": "http://localhost:4108/api/genetic-factors/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5430,17 +6246,160 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"environmental-factors",
-										"1"
+										"genetic-factors",
+										"2"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "DELETE environmental factor",
+							"name": "DELETE Genetic Factor",
 							"request": {
 								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNDc2MjIxLCJleHAiOjE3NTA1NjI2MjF9.A2TbaH1W9Vhx0FJNccCvD7k63Y_XqOovWm8Xzv840NY",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4107/api/genetic-factors/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4107",
+									"path": [
+										"api",
+										"genetic-factors",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Health Records",
+					"item": [
+						{
+							"name": "POST Create  New health record",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"animal_id\": 1,\r\n    \"health_status\": \"Healthy\",\r\n    \"disease\": \"None\",\r\n    \"vaccine\": \"Rabies\",\r\n    \"recorded_date\": \"2025-06-20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/health-records",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"health-records"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET All health records",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
@@ -5463,7 +6422,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/environmental-factors/2",
+									"raw": "http://localhost:4108/api/health-records",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5471,8 +6430,715 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"environmental-factors",
+										"health-records"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET health record by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/health-records/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"health-records",
 										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET health record by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/health-records/2/customer_id/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"health-records",
+										"2",
+										"customer_id",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT health record by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"health_status\": \"Normal\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/health-records/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"health-records",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE health record",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/health-records/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"health-records",
+										"11"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "houses",
+					"item": [
+						{
+							"name": "POST Create New House",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": 1,\r\n  \"farm_id\": 1,\r\n  \"name\": \"House A\",\r\n  \"area\": 1200.5,\r\n  \"capacity\": 100\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/houses",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"houses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET List Houses",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/houses",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"houses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Single House",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/houses/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"houses",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Single House & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/houses/3/customer_id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"houses",
+										"3",
+										"customer_id",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Update House",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwNjc4OTcxLCJleHAiOjE3NTA3NjUzNzF9.-Pen1zZULup__mTQptVQ23tj7LdZb-sTA8eHM7yGNls",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Updated House A\",\r\n  \"area\": 1300,\r\n  \"capacity\": 120\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/houses/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"houses",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE House",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/houses/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"houses",
+										"11"
 									]
 								}
 							},
@@ -5555,7 +7221,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"customer_id\": 5,\r\n    \"farm_id\": 1,\r\n    \"flooring_humidity\": 75.5,\r\n    \"animal_density\": 50,\r\n    \"area\": 1000,\r\n    \"effective_start\": \"2025-06-01T00:00:00Z\"\r\n}",
+									"raw": "{\r\n    \"customer_id\": 1,\r\n    \"farm_id\": 1,\r\n    \"flooring_humidity\": 75.5,\r\n    \"animal_density\": 50,\r\n    \"area\": 1000,\r\n    \"effective_start\": \"2025-06-01T00:00:00Z\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5665,13 +7331,58 @@
 							"response": []
 						},
 						{
-							"name": "PUT housing condition by id",
+							"name": "GET housing condition by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -5682,7 +7393,104 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"animal_density\": 55\r\n}",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/housing-conditions/1/customer_id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"housing-conditions",
+										"1",
+										"customer_id",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT housing condition by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"animal_density\": 60\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5711,6 +7519,222 @@
 								"method": "DELETE",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/housing-conditions/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"housing-conditions",
+										"10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Operational Records",
+					"item": [
+						{
+							"name": "POST Create  New operation record",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"farm_id\": 1,\r\n    \"type\": \"Maintenance\",\r\n    \"description\": \"Fixed ventilation\",\r\n    \"record_date\": \"2025-06-20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/operation-records",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"operation-records"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET All operation records",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/operation-records",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"operation-records"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET operation record by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
 										"key": "Authorization",
 										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
 										"type": "text"
@@ -5731,7 +7755,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/housing-conditions/2",
+									"raw": "http://localhost:4108/api/operation-records/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5739,8 +7763,620 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"housing-conditions",
+										"operation-records",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET operation record by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/operation-records/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"operation-records",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT operation record by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Updated description\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/operation-records/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"operation-records",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE operation record",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/operation-records/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"operation-records",
 										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Performance Metrics",
+					"item": [
+						{
+							"name": "POST Create  New performance metric",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"animal_id\": 2,\r\n    \"adg\": 0.5,\r\n    \"fcr\": 1.2,\r\n    \"survival_rate\": 95,\r\n    \"recorded_date\": \"2025-06-20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/performance-metrics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"performance-metrics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET All performance metrics",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/performance-metrics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"performance-metrics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET performance metric by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/performance-metrics/2/2025-06-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"performance-metrics",
+										"2",
+										"2025-06-20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET performance metric by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/performance-metrics/1/2025-06-20/customer_id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"performance-metrics",
+										"1",
+										"2025-06-20",
+										"customer_id",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT performance metric by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"survival_rate\": 90\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/performance-metrics/2/2025-06-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"performance-metrics",
+										"2",
+										"2025-06-20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE performance metric",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/performance-metrics/9/2025-06-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"performance-metrics",
+										"9",
+										"2025-06-20"
 									]
 								}
 							},
@@ -5933,6 +8569,94 @@
 							"response": []
 						},
 						{
+							"name": "GET water quality by id & custome_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/water-quality/1/customer_id/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"water-quality",
+										"1",
+										"customer_id",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "PUT water quality by id",
 							"request": {
 								"method": "PUT",
@@ -5999,7 +8723,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/water-quality/2",
+									"raw": "http://localhost:4108/api/water-quality/7",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -6008,275 +8732,7 @@
 									"path": [
 										"api",
 										"water-quality",
-										"2"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Health Records",
-					"item": [
-						{
-							"name": "POST Create  New health record",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Cache-Control",
-										"value": "no-cache",
-										"name": "cache-control",
-										"type": "text"
-									},
-									{
-										"key": "Postman-Token",
-										"value": "<calculated when request is sent>",
-										"name": "postman-token",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"name": "content-type",
-										"type": "text"
-									},
-									{
-										"key": "Content-Length",
-										"value": "<calculated when request is sent>",
-										"name": "content-length",
-										"type": "text"
-									},
-									{
-										"key": "Host",
-										"value": "<calculated when request is sent>",
-										"name": "host",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "PostmanRuntime/7.39.1",
-										"name": "user-agent",
-										"type": "text"
-									},
-									{
-										"key": "Accept",
-										"value": "*/*",
-										"name": "accept",
-										"type": "text"
-									},
-									{
-										"key": "Accept-Encoding",
-										"value": "gzip, deflate, br",
-										"name": "accept-encoding",
-										"type": "text"
-									},
-									{
-										"key": "Connection",
-										"value": "keep-alive",
-										"name": "connection",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"animal_id\": 2,\r\n    \"health_status\": \"Healthy\",\r\n    \"disease\": \"None\",\r\n    \"vaccine\": \"Rabies\",\r\n    \"recorded_date\": \"2025-06-20\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/health-records",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"health-records"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET All health records",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/health-records",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"health-records"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET health record by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/health-records/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"health-records",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PUT health record by id",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"health_status\": \"Sick\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/health-records/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"health-records",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE health record",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/health-records/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"health-records",
-										"2"
+										"7"
 									]
 								}
 							},
@@ -6390,8 +8846,50 @@
 								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -6410,7 +8908,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/health-records",
+									"raw": "http://localhost:4108/api/welfare-indicators",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -6418,7 +8916,7 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"health-records"
+										"welfare-indicators"
 									]
 								}
 							},
@@ -6433,8 +8931,50 @@
 								"method": "GET",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -6453,7 +8993,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/health-records/2",
+									"raw": "http://localhost:4108/api/welfare-indicators/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -6461,7 +9001,95 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"health-records",
+										"welfare-indicators",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET health record by id & customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4108/api/welfare-indicators/2/customer_id/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4108",
+									"path": [
+										"api",
+										"welfare-indicators",
+										"2",
+										"customer_id",
 										"2"
 									]
 								}
@@ -6472,93 +9100,6 @@
 							"name": "PUT health record by id",
 							"request": {
 								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"health_status\": \"Sick\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/water-quality/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"water-quality",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE health record",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/health-records/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"health-records",
-										"2"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Performance Metrics",
-					"item": [
-						{
-							"name": "POST Create  New performance metric",
-							"request": {
-								"method": "POST",
 								"header": [
 									{
 										"key": "Cache-Control",
@@ -6627,7 +9168,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"animal_id\": 2,\r\n    \"adg\": 0.5,\r\n    \"fcr\": 1.2,\r\n    \"survival_rate\": 95,\r\n    \"recorded_date\": \"2025-06-20\"\r\n}",
+									"raw": "{\r\n    \"footpad_lesion\": \"true\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6635,7 +9176,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/performance-metrics",
+									"raw": "http://localhost:4108/api/welfare-indicators/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -6643,364 +9184,63 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"performance-metrics"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET All performance metrics",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/performance-metrics",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"performance-metrics"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET performance metric by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/performance-metrics/2/2025-06-20",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"performance-metrics",
-										"2",
-										"2025-06-20"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PUT performance metric by id",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"survival_rate\": 90\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/performance-metrics/2/2025-06-20",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"performance-metrics",
-										"2",
-										"2025-06-20"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE performance metric",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/performance-metrics/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"performance-metrics",
+										"welfare-indicators",
 										"2"
 									]
 								}
 							},
 							"response": []
-						}
-					]
-				},
-				{
-					"name": "Operational Records",
-					"item": [
-						{
-							"name": "POST Create  New operation record",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"farm_id\": 1,\r\n    \"type\": \"Maintenance\",\r\n    \"description\": \"Fixed ventilation\",\r\n    \"record_date\": \"2025-06-20\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/operation-records",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"operation-records"
-									]
-								}
-							},
-							"response": []
 						},
 						{
-							"name": "GET All operation records",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/operation-records",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"operation-records"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET operation record by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/operation-records/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"operation-records",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PUT operation record by id",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"description\": \"Updated description\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:4108/api/operation-records/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "4108",
-									"path": [
-										"api",
-										"operation-records",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE operation record",
+							"name": "DELETE health record",
 							"request": {
 								"method": "DELETE",
 								"header": [
 									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicWlhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwODM1NTk3LCJleHAiOjE3NTA5MjE5OTd9.5IEHR3RhSNTB1B4lmta11yRwztj5aqhszPtYR5xiSGw",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTc1MTI2MTg4NCwiZXhwIjoxNzUxODY2Njg0fQ.KvujsTVba1oWSJIL8nYnnc7T9Iu3rG2B__qGuk9qA94",
 										"type": "text"
 									},
 									{
@@ -7019,7 +9259,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4108/api/operation-records/2",
+									"raw": "http://localhost:4108/api/health-records/9",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -7027,8 +9267,8 @@
 									"port": "4108",
 									"path": [
 										"api",
-										"operation-records",
-										"2"
+										"health-records",
+										"9"
 									]
 								}
 							},

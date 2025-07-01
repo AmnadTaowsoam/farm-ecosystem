@@ -23,6 +23,16 @@ export class FeedProgramService {
     return this.repo.save(program);
   }
 
+  // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<FeedProgram | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        customer_id: customerId
+      }
+    });
+  }
+  
   async update(id: number, data: Partial<FeedProgram>): Promise<FeedProgram | null> {
     await this.repo.update(id, data);
     return this.findOne(id);

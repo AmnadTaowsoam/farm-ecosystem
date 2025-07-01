@@ -18,6 +18,16 @@ export class OperationRecordService {
     return this.repo.findOne({ where: { id } });
   }
 
+   // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<OperationRecord | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        customer_id: customerId
+      }
+    });
+  } 
+
   async create(data: Partial<OperationRecord>): Promise<OperationRecord> {
     const record = this.repo.create(data);
     return this.repo.save(record);

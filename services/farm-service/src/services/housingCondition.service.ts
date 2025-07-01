@@ -18,6 +18,16 @@ export class HousingConditionService {
     return this.repo.findOne({ where: { id } });
   }
 
+  // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<HousingCondition | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        customer_id: customerId
+      }
+    });
+  }  
+
   async create(data: Partial<HousingCondition>): Promise<HousingCondition> {
     const hc = this.repo.create(data);
     return this.repo.save(hc);

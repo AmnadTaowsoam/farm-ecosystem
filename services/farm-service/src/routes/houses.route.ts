@@ -27,6 +27,26 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/houses/:id/customer_id/:customer_id */
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const house = await service.findOneByCustomer(id, customerId);
+      if (!house) {
+        return res
+          .status(404)
+          .json({ message: 'House not found for this customer' });
+      }
+      res.json(house);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/houses */
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

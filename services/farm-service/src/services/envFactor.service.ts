@@ -18,6 +18,15 @@ export class EnvFactorService {
     return this.repo.findOne({ where: { id } });
   }
 
+  // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<EnvironmentalFactor | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        customer_id: customerId
+      }});
+  }
+
   async create(data: Partial<EnvironmentalFactor>): Promise<EnvironmentalFactor> {
     const env = this.repo.create(data);
     return this.repo.save(env);

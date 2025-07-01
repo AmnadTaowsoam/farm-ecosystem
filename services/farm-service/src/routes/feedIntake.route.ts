@@ -27,6 +27,26 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/feed-intake/:id/customer_id/:customer_id */
+router.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const record = await service.findOneByCustomer(id, customerId);
+      if (!record) {
+        return res
+          .status(404)
+          .json({ message: 'FeedIntake not found for this customer' });
+      }
+      res.json(record);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** POST /api/feed-intake */
 router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

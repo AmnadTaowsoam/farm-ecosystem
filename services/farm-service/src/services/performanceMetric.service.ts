@@ -18,6 +18,21 @@ export class PerformanceMetricService {
     return this.repo.findOne({ where: { id, recorded_date } });
   }
 
+  // ← เพิ่มเมธอดนี้ รับ id, recordDate, customerId
+  async findOneByDateAndCustomer(
+    id: number,
+    recordDate: string,
+    customerId: number
+  ): Promise<PerformanceMetric | null> {
+    return this.repo.findOne({
+      where: {
+        id,
+        recorded_date: recordDate,
+        customer_id: customerId
+      }
+    });
+  }
+
   async create(data: Partial<PerformanceMetric>): Promise<PerformanceMetric> {
     const pm = this.repo.create(data);
     return this.repo.save(pm);

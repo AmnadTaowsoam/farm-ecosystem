@@ -28,6 +28,33 @@ pmRouter.get('/:id/:date', async (req: Request, res: Response, next: NextFunctio
   }
 });
 
+/** GET /api/performance-metrics/:id/:date/customer_id/:customer_id */
+pmRouter.get(
+  '/:id/:date/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const recordDate = req.params.date;                // รูปแบบ 'YYYY-MM-DD'
+      const customerId = Number(req.params.customer_id);
+
+      const item = await pmService.findOneByDateAndCustomer(
+        id,
+        recordDate,
+        customerId
+      );
+      if (!item) {
+        return res
+          .status(404)
+          .json({ message: 'PerformanceMetric not found for this date/customer' });
+      }
+      res.json(item);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+
 /** POST /api/performance-metrics */
 pmRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {

@@ -38,6 +38,26 @@ wiRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** GET /api/welfare-indicators/:id/customer_id/:customer_id */
+wiRouter.get(
+  '/:id/customer_id/:customer_id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      const customerId = Number(req.params.customer_id);
+      const item = await wiService.findOneByCustomer(id, customerId);
+      if (!item) {
+        return res
+          .status(404)
+          .json({ message: 'WelfareIndicator not found for this customer' });
+      }
+      res.json(item);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 /** PUT /api/welfare-indicators/:id */
 wiRouter.put('/:id', async (req: Request, res: Response, next: NextFunction) => {
   try {

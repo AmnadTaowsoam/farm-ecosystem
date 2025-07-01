@@ -18,6 +18,16 @@ export class HouseService {
     return this.repo.findOne({ where: { house_id: id } });
   }
 
+   // ← เพิ่มเมธอดนี้
+  async findOneByCustomer(id: number, customerId: number): Promise<House | null> {
+    return this.repo.findOne({
+      where: {
+        house_id: id,
+        customer_id: customerId
+      }
+    });
+  }
+   
   async create(data: Partial<House>): Promise<House> {
     const house = this.repo.create(data);
     return this.repo.save(house);

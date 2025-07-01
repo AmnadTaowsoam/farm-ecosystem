@@ -18,6 +18,17 @@ export class AnimalService {
     return this.repo.findOne({ where: { animal_id: id } });
   }
 
+  // ← เพิ่มเมธอดนี้ ตรงนี้เลย
+  async findOneByCustomer(id: number, customerId: number): Promise<Animal | null> {
+    return this.repo.findOne({
+      where: {
+        animal_id: id,
+        customer_id: customerId
+      }
+    });
+  }
+  // ↑ จบการเพิ่ม  
+
   async create(data: Partial<Animal>): Promise<Animal> {
     const animal = this.repo.create(data);
     return this.repo.save(animal);
