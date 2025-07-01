@@ -10,6 +10,9 @@ export class FeedBatch {
   @PrimaryGeneratedColumn({ name: 'feed_batch_id' })
   feedBatchId!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customerId!: number;
+
   @Column({ name: 'farm_id', nullable: true })
   farmId?: number;
 

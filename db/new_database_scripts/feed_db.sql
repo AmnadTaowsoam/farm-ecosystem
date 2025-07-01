@@ -7,6 +7,7 @@ CREATE SCHEMA IF NOT EXISTS feeds;
 -- 2. ตาราง feed_batches (global catalog; no customer_id)
 CREATE TABLE feeds.feed_batches (
     feed_batch_id   SERIAL       NOT NULL,
+    customer_id     INT          NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date TIMESTAMPTZ  NOT NULL,
     farm_id         INTEGER,
     formula_id      INTEGER,
@@ -36,11 +37,14 @@ CREATE TABLE feeds.feed_batches_2027_h2 PARTITION OF feeds.feed_batches
 -- 4. Index บน global catalog (optional)
 CREATE INDEX idx_feed_batches_formula
   ON feeds.feed_batches(formula_id);
+CREATE INDEX idx_feed_batches_customer_id
+  ON feeds.feed_batches(customer_id);
 
 
 -- 5. ตาราง physical_quality (child of feed_batches)
 CREATE TABLE feeds.physical_quality (
     id               SERIAL PRIMARY KEY,
+    customer_id      INT NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date  TIMESTAMPTZ NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
     property_name    VARCHAR(100) NOT NULL,
@@ -52,10 +56,13 @@ CREATE TABLE feeds.physical_quality (
       REFERENCES feeds.feed_batches (production_date, feed_batch_id)
       ON DELETE CASCADE
 );
+CREATE INDEX idx_physical_quality_customer_id
+  ON feeds.physical_quality(customer_id);
 
 -- 6. ตาราง chemical_quality (child of feed_batches)
 CREATE TABLE feeds.chemical_quality (
     id               SERIAL PRIMARY KEY,
+    customer_id      INT NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date  TIMESTAMPTZ NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
     nutrient_name    VARCHAR(100) NOT NULL,
@@ -67,10 +74,13 @@ CREATE TABLE feeds.chemical_quality (
       REFERENCES feeds.feed_batches (production_date, feed_batch_id)
       ON DELETE CASCADE
 );
+CREATE INDEX idx_chemical_quality_customer_id
+  ON feeds.chemical_quality(customer_id);
 
 -- 7. ตาราง pellet_mill_condition (child of feed_batches)
 CREATE TABLE feeds.pellet_mill_condition (
     id               SERIAL PRIMARY KEY,
+    customer_id      INT NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date  TIMESTAMPTZ NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
     parameter_name   VARCHAR(100) NOT NULL,
@@ -81,10 +91,13 @@ CREATE TABLE feeds.pellet_mill_condition (
       REFERENCES feeds.feed_batches (production_date, feed_batch_id)
       ON DELETE CASCADE
 );
+CREATE INDEX idx_pellet_mill_condition_customer_id
+  ON feeds.pellet_mill_condition(customer_id);
 
 -- 8. ตาราง mixing_condition (child of feed_batches)
 CREATE TABLE feeds.mixing_condition (
     id               SERIAL PRIMARY KEY,
+    customer_id      INT NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date  TIMESTAMPTZ NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
     parameter_name   VARCHAR(100) NOT NULL,
@@ -95,10 +108,13 @@ CREATE TABLE feeds.mixing_condition (
       REFERENCES feeds.feed_batches (production_date, feed_batch_id)
       ON DELETE CASCADE
 );
+CREATE INDEX idx_mixing_condition_customer_id
+  ON feeds.mixing_condition(customer_id);
 
 -- 9. ตาราง grinding_condition (child of feed_batches)
 CREATE TABLE feeds.grinding_condition (
     id               SERIAL PRIMARY KEY,
+    customer_id      INT NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date  TIMESTAMPTZ NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
     parameter_name   VARCHAR(100) NOT NULL,
@@ -109,11 +125,14 @@ CREATE TABLE feeds.grinding_condition (
       REFERENCES feeds.feed_batches (production_date, feed_batch_id)
       ON DELETE CASCADE
 );
+CREATE INDEX idx_grinding_condition_customer_id
+  ON feeds.grinding_condition(customer_id);
 
 
 -- 10. ตาราง feed_batch_assignments (per-farm; farm → customer linkage in farms.farms)
 CREATE TABLE feeds.feed_batch_assignments (
     assignment_id    SERIAL       PRIMARY KEY,
+    customer_id      INT NOT NULL,  -- REFERENCES public.customers(customer_id),
     production_date  TIMESTAMPTZ  NOT NULL,
     feed_batch_id    INTEGER      NOT NULL,
     farm_id          INTEGER      NOT NULL,
@@ -131,11 +150,10 @@ CREATE TABLE feeds.feed_batch_assignments (
       REFERENCES feeds.feed_batches (production_date, feed_batch_id)
       ON DELETE CASCADE
 );
-
--- Index ช่วย query ตาม farm และวันที่
 CREATE INDEX idx_feed_batch_assignments_farm_date
   ON feeds.feed_batch_assignments(farm_id, production_date);
-
+CREATE INDEX idx_feed_batch_assignments_customer_id
+  ON feeds.feed_batch_assignments(customer_id);
 
 -- 11. Trigger function for updated_at
 CREATE OR REPLACE FUNCTION feeds.update_updated_at_column()

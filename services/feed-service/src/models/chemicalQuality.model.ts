@@ -22,6 +22,9 @@ export class ChemicalQuality {
   @Column({ length: 50, nullable: true })
   unit?: string;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customerId!: number;
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt!: Date;
 

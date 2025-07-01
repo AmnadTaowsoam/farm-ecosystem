@@ -15,6 +15,9 @@ export class FeedBatchAssignment {
   @PrimaryGeneratedColumn({ name: 'assignment_id' })
   assignmentId!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customerId!: number;
+
   @Column({ name: 'production_date', type: 'timestamptz' })
   productionDate!: Date;
 

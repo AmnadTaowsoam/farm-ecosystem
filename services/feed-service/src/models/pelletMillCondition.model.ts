@@ -14,6 +14,9 @@ export class PelletMillCondition {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Column({ name: 'customer_id', type: 'int' })
+  customerId!: number;
+
   @Column({ name: 'production_date', type: 'timestamptz' })
   productionDate!: Date;
 
